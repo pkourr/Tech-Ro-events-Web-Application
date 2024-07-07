@@ -1,3 +1,4 @@
+```markdown
 # Tech-Ro Events Web Application
 
 ## Overview
@@ -6,24 +7,25 @@ Tech-Ro Events Web Application is designed to manage and facilitate the booking 
 
 ## Features
 
-- **User Authentication:** Secure login and registration system.
-- **Event Booking:** Browse and book tickets for seminars.
-- **Admin Panel:** Manage users, events, and bookings.
-- **Responsive Design:** Accessible on smartphones, tablets, and desktops.
-- **Dark Mode:** Option for dark mode to reduce eye strain.
+- ![User Authentication](https://img.shields.io/badge/User%20Authentication-✔-green)
+- ![Event Booking](https://img.shields.io/badge/Event%20Booking-✔-green)
+- ![Admin Panel](https://img.shields.io/badge/Admin%20Panel-✔-green)
+- ![Responsive Design](https://img.shields.io/badge/Responsive%20Design-✔-green)
+- ![Dark Mode](https://img.shields.io/badge/Dark%20Mode-✔-green)
 
 ## Technologies Used
 
 - **Frontend:**
-  - HTML5
-  - CSS3
-  - JavaScript (AngularJS)
-  - Bootstrap
+  - ![HTML5](https://img.shields.io/badge/HTML5-✔-orange)
+  - ![CSS3](https://img.shields.io/badge/CSS3-✔-blue)
+  - ![JavaScript](https://img.shields.io/badge/JavaScript-✔-yellow)
+  - ![AngularJS](https://img.shields.io/badge/AngularJS-✔-red)
+  - ![Bootstrap](https://img.shields.io/badge/Bootstrap-✔-purple)
 - **Backend:**
-  - Node.js
-  - Express.js
+  - ![Node.js](https://img.shields.io/badge/Node.js-✔-green)
+  - ![Express.js](https://img.shields.io/badge/Express.js-✔-black)
 - **Database:**
-  - MongoDB Atlas
+  - ![MongoDB Atlas](https://img.shields.io/badge/MongoDB%20Atlas-✔-green)
 
 ## Folder Structure
 
@@ -37,8 +39,8 @@ Tech-Ro Events Web Application is designed to manage and facilitate the booking 
 
 ### Prerequisites
 
-- Node.js 14+
-- MongoDB Atlas account
+- ![Node.js 14+](https://img.shields.io/badge/Node.js-14+-green)
+- ![MongoDB Atlas account](https://img.shields.io/badge/MongoDB%20Atlas-account-green)
 
 ### Steps
 
