@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<!-- Basic -->
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+		<title>Tech-Ro | Your choice for Tech Events!</title>
+
+		<meta name="keywords" content="Tech Events" />
+		<meta name="description" content="Tech-Ro | Your choice for Tech Events!">
+		<meta name="author" content="tech-ro.com">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+		<link rel="manifest" href="img/favicon/site.webmanifest">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+		<!-- Web Fonts  -->
+		<link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+		<link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+		<link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="css/theme.css">
+		<link rel="stylesheet" href="css/theme-elements.css">
+		<link rel="stylesheet" href="css/theme-blog.css">
+		<link rel="stylesheet" href="css/theme-shop.css">
+
+		<!-- Demo CSS -->
+		<link rel="stylesheet" href="css/demos/demo-real-estate.css">
+
+		<!-- Skin CSS -->
+		<link id="skinCSS" rel="stylesheet" href="css/skins/skin-real-estate.css">
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Head Libs -->
+		<script src="vendor/modernizr/modernizr.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+		<style>
+			.modal-backdrop {
+				z-index: 1039 !important;
+			}
+
+			.modal-stack {
+				overflow-y: scroll !important;
+				width: 100% !important;
+				height: 100% !important;
+				max-height: 100% !important;
+				max-width: 100% !important;
+				padding-right: 15px !important;
+			}
+		</style>
+		<script>
+			$(document).ready(function() {
+				// Get the saved dark mode state from LocalStorage, if it exists
+				var darkMode = localStorage.getItem('darkMode');
+
+				// If darkMode exists and is 'true', add the .dark class and check the switch
+				if (darkMode === 'true') {
+					$('html').addClass('dark');
+					$('#darkModeBtn').prop('checked', true);
+				}
+
+				// Listen for switch state changes
+				$('#darkModeBtn').change(function() {
+					// If the switch is checked, add the .dark class and save the state
+					if ($(this).is(':checked')) {
+						$('html').addClass('dark');
+						localStorage.setItem('darkMode', 'true');
+					}
+					// If the switch is not checked, remove the .dark class and save the state
+					else {
+						$('html').removeClass('dark');
+						localStorage.setItem('darkMode', 'false');
+					}
+				});
+			});
+		</script>
+	</head>
+	<body class="loading-overlay-showing" data-loading-overlay data-plugin-options="{'hideDelay': 500}">
+		<div class="loading-overlay">
+			<div class="bounce-loader">
+				<div class="bounce1"></div>
+				<div class="bounce2"></div>
+				<div class="bounce3"></div>
+			</div>
+		</div>
+
+		<div class="body">
+			<header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 135, 'stickySetTop': '-135px', 'stickyChangeLogo': true}">
+				<div class="header-body header-body-bottom-border-fixed box-shadow-none border-top-0">
+					<div class="header-container container">
+						<div class="header-row py-2">
+							<div class="header-column w-100">
+								<div class="header-row justify-content-between">
+									<div class="header-logo z-index-2 col-lg-2 px-0">
+										<a href="page-event-list.html">
+											<img alt="Tech-Ro" width="200" height="200" data-sticky-width="82" data-sticky-height="40" data-sticky-top="84" src="img/logo_transparent_blacktxt.png">
+										</a>
+									</div>
+									<div class="header-nav-features header-nav-features-no-border col-lg-5 col-xl-6 px-0 ms-0">
+										<div class="header-nav-feature ps-lg-5 pe-lg-4">
+											<form role="search" action="page-event-list-search.html" method="get">
+												<div class="search-with-select">
+													<a href="#" class="mobile-search-toggle-btn me-2" data-porto-toggle-class="open">
+														<i class="icons icon-magnifier text-color-dark text-color-hover-primary"></i>
+													</a>
+													<div class="search-form-wrapper input-group">
+														<input class="form-control text-1" id="headerSearch" name="s" type="search" value="" placeholder="Search...">
+														<div class="search-form-select-wrapper">
+															<button class="btn" type="submit">
+																<i class="icons icon-magnifier header-nav-top-icon text-color-dark"></i>
+															</button>
+														</div>
+													</div>
+												</div>
+											</form>
+										</div>
+									</div>
+
+									<label class="form-check-label" for="darkModeBtn"><i class="fa-sharp fa-solid fa-circle-half-stroke fa-spin fa-spin-reverse fa-xl" style="color: #464f5d;"></i></label>
+									<input id="darkModeBtn" type="checkbox" name="darkModeBtn" class="gdpe-input custom-checkbox-switch mb-1" value="darkmode" />
+									<div class="d-flex col-auto col-lg-2 pe-0 ps-0 ps-xl-3">
+										<div id="accountDropDown" class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2" style="display: none;">
+											<div class="header-nav-feature header-nav-features-user header-nav-features-user-logged d-inline-flex mx-2 pe-2" id="headerAccount">
+												<a href="#" class="header-nav-features-toggle">
+													<i class="far fa-user"></i>My Account
+												</a>
+
+												<!--My Account DropDown-->
+												<div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed header-nav-features-dropdown-force-right">
+													<div class="row">
+														<div class="col-8">
+															<p class="mb-0 pb-0 text-2 line-height-1 pt-1">Tech-Ro.</p>
+															<p id="welcomeUsr"><strong class="text-color-dark text-4">Welcome User!</strong></p>
+														</div>
+													</div>
+													<div class="row">
+														<div class="col">
+															<ul class="nav nav-list-simple flex-column text-3">
+																<li class="nav-item"><a class="nav-link" href="page-user-profile.html">My Profile</a></li>
+																<li class="nav-item"><a class="nav-link" href="page-user-orders.html">My Orders</a></li>
+																<li id="logoutBtn" class="nav-item"><a class="nav-link border-bottom-0" href="">Log Out</a></li>
+															</ul>
+														</div>
+													</div>
+												</div>
+
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+							<div class="header-column justify-content-end">
+								<div class="header-row">
+
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="header-nav-bar header-nav-bar-top-border bg-color-dark-scale-5">
+						<div class="header-container container">
+							<div class="header-row">
+								<div class="header-column">
+									<div class="header-row justify-content-end">
+										<div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border justify-content-start" data-sticky-header-style="{'minResolution': 991}" data-sticky-header-style-active="{'margin-left': '105px'}" data-sticky-header-style-deactive="{'margin-left': '0'}">
+											<div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
+												<nav class="collapse w-100">
+													<ul class="nav nav-pills w-100" id="mainNav">
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle" href="index-one-page.html">
+																Home
+															</a>
+														</li>
+														<li class="dropdown dropdown-mega">
+															<a class="dropdown-item dropdown-toggle" href="aboutus.html">
+																About Us
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle" href="page-event-list.html">
+																Events
+															</a>
+														</li>
+														<li class="dropdown">
+															<a class="dropdown-item dropdown-toggle" href="/admin/page-admin-sign-in.html">
+																Admin
+															</a>
+														</li>
+														<li id="loginBtn" class="dropdown ms-lg-auto" style="display: none;">
+															<a href="sign-in-up-page.html" class="dropdown-item">
+																Sign In
+															</a>
+														</li>
+														<li id="registerBtn" class="dropdown" style="display: none;">
+															<a href="sign-in-up-page.html" class="dropdown-item">
+																Register
+															</a>
+														</li>
+													</ul>
+												</nav>
+											</div>
+											<button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+												<i class="fas fa-bars"></i>
+											</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<div role="main" class="main">
+
+				<section class="page-header page-header-modern bg-color-primary border-0 m-0">
+					<div class="container position-relative z-index-2">
+						<div class="row text-center text-md-start py-5">
+							<div class="col-md-8 order-2 order-md-1 align-self-center p-static">
+<!--								EVENT NAME-->
+								<h1 class="font-weight-bold text-color-light text-8 mb-0"></h1>
+							</div>
+							<div class="col-md-4 order-1 order-md-2 align-self-center">
+								<ul class="breadcrumb breadcrumb-light d-block text-md-end text-4 mb-0">
+									<li><a href="page-event-list.html" class="text-decoration-none">Events</a></li>
+									<li class="text-upeercase active">Event Details</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+				</section>
+
+				<div class="container py-5 my-3">
+					<div class="row">
+<!--						//DYNAMIC-->
+						<div class="col-lg-9">
+
+							<div class="row">
+								<div class="col-lg-7">
+
+									<div class="thumb-gallery">
+										<div class="lightbox" data-plugin-options="{'delegate': 'a', 'type': 'image', 'gallery': {'enabled': true}}">
+											<div class="owl-carousel owl-theme manual thumb-gallery-detail show-nav-hover" id="thumbGalleryDetail">
+												<div class="border-radius overflow-hidden">
+<!--													Event Image-->
+													<a href="img/demos/real-estate/listing/listing-detail-1.jpg">
+														<span class="thumb-info thumb-info-centered-info thumb-info-no-borders text-4">
+															<span class="thumb-info-wrapper text-4">
+<!--																Event Image Again-->
+																<img alt="Property Detail" src="img/demos/real-estate/listing/listing-detail-1.jpg" class="img-fluid">
+																<span class="thumb-info-title text-4">
+																	<span class="thumb-info-inner text-4"><i class="icon-magnifier icons text-4"></i></span>
+																</span>
+															</span>
+														</span>
+													</a>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+
+								</div>
+								<div class="col-lg-5">
+
+									<div class="border-radius overflow-hidden">
+										<table class="table table-striped">
+											<colgroup>
+												<col width="35%">
+												<col width="65%">
+											</colgroup>
+											<tbody>
+												<tr>
+													<td class="font-weight-semibold">
+														Event:
+													</td>
+													<td>
+<!--														Event Name-->
+													</td>
+												</tr>
+												<tr>
+													<td class="font-weight-semibold">
+														Location:
+													</td>
+													<td>
+														<a href="#map" class="text-2" data-hash data-hash-offset="0" data-hash-offset-lg="100">(Map Location)</a>
+													</td>
+												</tr>
+												<tr>
+													<td class="font-weight-semibold">
+														Type A:
+													</td>
+													<td>
+<!--														Total Type A Tickets-->
+													</td>
+												</tr>
+												<tr>
+													<td class="font-weight-semibold">
+														Type B:
+													</td>
+													<td>
+<!--														Total Type B Tickets-->
+													</td>
+												</tr>
+												<tr>
+													<td class="font-weight-semibold">
+														Type C:
+													</td>
+													<td>
+<!--														Total Type C Tickets-->
+													</td>
+												</tr>
+												<tr>
+													<td class="bg-color-secondary text-light align-middle font-weight-semibold">
+														Number <br> of <br>Tickets:
+													</td>
+													<td class="text-4 font-weight-bold align-middle bg-color-secondary text-light">
+														<br>
+														<select id="numTicketsSelect" class="form-select form-select-icon-light form-control bg-primary mb-3">
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+														</select>
+													</td>
+												</tr>
+												<tr>
+													<td class="bg-color-secondary text-light align-middle font-weight-semibold">
+														Ticket type:
+													</td>
+													<td class="text-4 font-weight-bold align-middle bg-color-secondary text-light">
+														<div class="form-check form-check-inline">
+															<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="A">
+															<label class="form-check-label" for="inlineRadio1">A</label>
+														</div>
+														<div class="form-check form-check-inline">
+															<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="B">
+															<label class="form-check-label" for="inlineRadio2">B</label>
+														</div>
+														<div class="form-check form-check-inline">
+															<input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="C">
+															<label class="form-check-label" for="inlineRadio2">C</label>
+														</div>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</div>
+
+								</div>
+							</div>
+							<!--  modal component  -->
+
+							<div class="modal fade" id="zoomedInImageModal" tabindex="-1" role="dialog" aria-labelledby="zoomedInImageModalLabel" aria-hidden="true">
+								<div class="modal-dialog modal-dialog-centered modal-xl">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h5 class="modal-title" id="zoomedInImageModalLabel">Select your Seats Below:</h5>
+											<button type="button" class="btn-close" data-bs-dismiss="modal"
+													aria-label="Close"></button>
+										</div>
+										<div class="modal-body">
+											<div class="row image-overlay d-flex flex-row">
+												<img id="zoomedImage" src="" alt="Zoomed-in Image" class="img-fluid col-md-7">
+
+												<div class="col-md-5">
+													<div class="checkbox-row d-flex flex-row">
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-A" type="checkbox" id="checkbox-A-1" value="A-1">
+															<label for="checkbox-A-1">A-1</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-A" type="checkbox" id="checkbox-A-2" value="A-2">
+															<label for="checkbox-A-2">A-2</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-A" type="checkbox" id="checkbox-A-3" value="A-3">
+															<label for="checkbox-A-3">A-3</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-A" type="checkbox" id="checkbox-A-4" value="A-4">
+															<label for="checkbox-A-4">A-4</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-A" type="checkbox" id="checkbox-A-5" value="A-5">
+															<label for="checkbox-A-5">A-5</label>
+														</div>
+													</div>
+
+													<div class="checkbox-row d-flex flex-row">
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-1" value="B-1">
+															<label for="checkbox-B-1">B-1</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-2" value="B-2">
+															<label for="checkbox-B-2">B-2</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-3" value="B-3">
+															<label for="checkbox-B-3">B-3</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-4" value="B-4">
+															<label for="checkbox-B-4">B-4</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-5" value="B-5">
+															<label for="checkbox-B-5">B-5</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-6" value="B-6">
+															<label for="checkbox-B-6">B-6</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-7" value="B-7">
+															<label for="checkbox-B-7">B-7</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-8" value="B-8">
+															<label for="checkbox-B-8">B-8</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-9" value="B-9">
+															<label for="checkbox-B-9">B-9</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-B" type="checkbox" id="checkbox-B-10" value="B-10">
+															<label for="checkbox-B-10">B-10</label>
+														</div>
+													</div>
+
+													<div class="checkbox-row d-flex flex-row">
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-1" value="C-1">
+															<label for="checkbox-C-1">C-1</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-2" value="C-2">
+															<label for="checkbox-C-2">C-2</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-3" value="C-3">
+															<label for="checkbox-C-3">C-3</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-4" value="C-4">
+															<label for="checkbox-C-4">C-4</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-5" value="C-5">
+															<label for="checkbox-C-5">C-5</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-6" value="C-6">
+															<label for="checkbox-C-6">C-6</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-7" value="C-7">
+															<label for="checkbox-C-7">C-7</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-8" value="C-8">
+															<label for="checkbox-C-8">C-8</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-9" value="C-9">
+															<label for="checkbox-C-9">C-9</label>
+														</div>
+														<div class="checkbox-group">
+															<input class="seat-checkbox ticket-type-C" type="checkbox" id="checkbox-C-10" value="C-10">
+															<label for="checkbox-C-10">C-10</label>
+														</div>
+													</div>
+													<button id="bookNowBtn" class="btn btn-modern btn-primary" data-bs-toggle="modal" data-bs-target="#formModal">
+														Book Now!
+													</button>
+
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="modal fade" id="formModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title" id="formModalLabel">Large Modal Title</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+										</div>
+										<div class="modal-body">
+											<form id="demo-form" class="mb-4" novalidate="novalidate">
+												<div id="dynamicFieldsContainer"></div>
+												<div class="form-group row">
+													<label class="col-sm-3 text-start text-sm-end mb-0">Price:</label>
+													<div class="col-sm-9">
+														<input id="totalPrice" rows="5" class="form-control" placeholder="Your Total price is..." disabled>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+											<button id="proceedBtn" type="button" class="btn btn-primary">Proceed!</button>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="modal fade" id="paymentModal" tabindex="-1" role="dialog" aria-labelledby="formModalLabel" aria-hidden="true">
+								<div class="modal-dialog">
+									<div class="modal-content">
+										<div class="modal-header">
+											<h4 class="modal-title" id="paymentModalLabel">Large Modal Title</h4>
+											<button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true">&times;</button>
+										</div>
+										<div class="modal-body">
+											<form id="demo-form-payment" class="mb-4" novalidate="novalidate">
+												<div class="form-group row align-items-center">
+													<label class="col-sm-3 text-start text-sm-end mb-0">Email:</label>
+													<div class="col-sm-9">
+														<input id="orderEmail" type="email" name="email" class="form-control" placeholder="Type your email..." required/>
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-sm-3 text-start text-sm-end mb-0">Card Type:</label>
+													<div class="col-sm-9">
+														<div class="form-check form-check-inline">
+															<input class="form-check-input" type="radio" name="creditCardType" id="paymentRadioMasterCard" value="Master Card">
+															<label class="form-check-label" for="inlineRadio1">Master Card</label>
+														</div>
+														<div class="form-check form-check-inline">
+															<input class="form-check-input" type="radio" name="creditCardType" id="paymentRadioVisa" value="Visa">
+															<label class="form-check-label" for="inlineRadio2">Visa</label>
+														</div>
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-sm-3 text-start text-sm-end mb-0">16-Digit Credit Number</label>
+
+													<div class="col">
+														<input type="text" name="card-numbers-1" class="form-control" placeholder="First 4 digits" pattern="\d{4}" required/>
+													</div>
+													<div class="col">
+														<input type="text" name="card-numbers-2" class="form-control" placeholder="..." pattern="\d{4}" required/>
+													</div>
+													<div class="col">
+														<input type="text" name="card-numbers-3" class="form-control" placeholder="..." pattern="\d{4}" required/>
+													</div>
+													<div class="col">
+														<input type="text" name="card-numbers-4" class="form-control" placeholder="Last 4 digits" pattern="\d{4}" required/>
+													</div>
+
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-sm-3 text-start text-sm-end mb-0">Captcha:</label>
+													<div class="col-sm-9">
+<!--														CAPTCHA DIV HERE with random 5-digit number -->
+														<div id="captchaDiv"></div>
+													</div>
+													<div class="col-auto">
+														<input type="text" name="verify-captcha" class="form-control" placeholder="Enter your captcha here..." maxlength="5" minlength="5"/>
+													</div>
+												</div>
+											</form>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+											<button id="payNowBtn" type="button" class="btn btn-primary">PAY NOW!</button>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<script>
+								$(document).ready(function() {
+									$(document).on('hidden.bs.modal', '.modal', function () {
+										$('.modal:visible').length && $(document.body).addClass('modal-open');
+									});
+
+									$(document).on('shown.bs.modal', '.modal', function() {
+										var zIndex = 1040 + (10 * $('.modal:visible').length);
+										$(this).css('z-index', zIndex);
+										setTimeout(function() {
+											$('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
+										}, 0);
+									});
+									let selectedTicketType = '';
+									let selectedCheckboxes = [];
+
+									$('input[name="inlineRadioOptions"]').on('change', function() {
+										// clear previously checked checkboxes of the selected type
+										$(`.seat-checkbox.ticket-type-${selectedTicketType}`).prop('checked', false);
+										// clear the selectedCheckboxes array
+										selectedCheckboxes = [];
+
+										selectedTicketType = $(this).val();
+										const eventId = getEventIdFromUrl();
+
+										$.get(`/getEventDetails?id=${eventId}`, function(eventDetails) {
+											// console.log(eventDetails);
+											const imageUrl = getTicketTypeImageUrl(eventDetails, selectedTicketType);
+											displayZoomedImage(imageUrl);
+
+											updateCheckboxStatus(eventDetails);
+										});
+									});
+
+									$('.form-select').on('change', function() {
+										// clear previously checked checkboxes of the selected type
+										$(`.seat-checkbox.ticket-type-${selectedTicketType}`).prop('checked', false);
+										// clear the selectedCheckboxes array
+										selectedCheckboxes = [];
+
+										const eventId = getEventIdFromUrl();
+										$.get(`/getEventDetails?id=${eventId}`, function(eventDetails) {
+											updateCheckboxStatus(eventDetails);
+										});
+									});
+
+
+
+									$('input[type="checkbox"]').on('change', function() {
+										const maxSelections = parseInt($('#numTicketsSelect').val(), 10);
+										const checkedCheckboxes = $(`.seat-checkbox.ticket-type-${selectedTicketType}:checked`);
+
+										// console.log("Max selections: " + maxSelections);
+										// console.log("Checked checkboxes: " + checkedCheckboxes.length);
+										// console.log("Selected ticket type: " + selectedTicketType);
+
+										if(checkedCheckboxes.length > maxSelections) {
+											$(this).prop('checked', false);
+											alert('You cannot select more than ' + maxSelections + ' seats.');
+										}
+									});
+
+									$('.form-select').on('change', function() {
+										const eventId = getEventIdFromUrl();
+										$.get(`/getEventDetails?id=${eventId}`, function(eventDetails) {
+											updateCheckboxStatus(eventDetails);
+										});
+									});
+
+									//Get ID from URL
+									function getEventIdFromUrl() {
+										const urlParams = new URLSearchParams(window.location.search);
+										return urlParams.get('id');
+									}
+
+									//GET image of event
+									function getTicketTypeImageUrl(eventDetails, ticketType) {
+										let imageUrl = eventDetails.eventImage;
+										return imageUrl;
+									}
+
+									//display ZOOMED image for first modal
+									function displayZoomedImage(imageUrl) {
+										$('#zoomedImage').attr('src', imageUrl);
+										$('#zoomedImage').attr('width', '612');
+										$('#zoomedImage').attr('height', '408');
+										$('#zoomedInImageModal').modal('show');
+									}
+
+									//UPDATE STATUS for all checkboxes DEPENDING on the ticket type selected
+									function updateCheckboxStatus(eventDetails) {
+										const ticketCount = parseInt($('.form-select').val(), 10);
+										const typeATotalSeats = eventDetails.tickets.A.totalSeats;
+										const typeBTotalSeats = eventDetails.tickets.B.totalSeats;
+										const typeCTotalSeats = eventDetails.tickets.C.totalSeats;
+
+										// Disable all checkboxes
+										$('input[type="checkbox"]').prop('disabled', true);
+
+										if (selectedTicketType === 'A') {
+											enableCheckboxesOfType('A', typeATotalSeats, ticketCount);
+											disableBookedSeats(eventDetails.tickets.A.bookedSeats);  //disable BOOKED seats found in DB
+										} else if (selectedTicketType === 'B') {
+											enableCheckboxesOfType('B', typeBTotalSeats, ticketCount);
+											disableBookedSeats(eventDetails.tickets.B.bookedSeats);	//disable BOOKED seats found in DB
+										} else if (selectedTicketType === 'C') {
+											enableCheckboxesOfType('C', typeCTotalSeats, ticketCount);
+											disableBookedSeats(eventDetails.tickets.C.bookedSeats);	//disable BOOKED seats found in DB
+										}
+
+									}
+
+									//enable checkbox function
+									function enableCheckboxesOfType(ticketType, totalSeats, ticketCount) {
+										for (let i = 1; i <= totalSeats; i++) {
+											$(`#checkbox-${ticketType}-${i}`).prop('disabled', false);
+										}
+									}
+
+									//disable booked checkbox function
+									function disableBookedSeats(bookedSeats) {
+										bookedSeats.forEach(seat => {
+											const checkboxId = 'checkbox-' + seat;
+											const checkbox = document.getElementById(checkboxId);
+											// console.log(`Disabling checkbox for seat ${seat} with id ${checkboxId}: `, checkbox);
+											if (checkbox) {
+												checkbox.disabled = true;
+											}
+										});
+									}
+
+
+									//book NOW event listener
+									$('#bookNowBtn').on('click', function(e) {
+										e.preventDefault(); // Prevents the default action
+										// console.log("Button clicked");
+
+										// Get the number of selected tickets
+										const numOfTickets = $(`.seat-checkbox.ticket-type-${selectedTicketType}:checked`).length;
+										// console.log("Num of tickets: " + numOfTickets);
+
+										const eventId = getEventIdFromUrl();
+										$.get(`/getEventDetails?id=${eventId}`, function(eventDetails) {
+											// Get the price for the selected ticket type
+											const pricePerTicket = eventDetails.tickets[selectedTicketType].price;
+											// console.log("Price per ticket: " + pricePerTicket);
+
+											// Calculate the total price
+											const totalPrice = numOfTickets * pricePerTicket;
+											// console.log("Total price: " + totalPrice);
+
+											// Clear previous dynamic fields
+											$("#dynamicFieldsContainer").empty();
+
+											// Create dynamic fields
+											for (let i = 1; i <= numOfTickets; i++) {
+												let inputHTML = `
+                <div class="form-group row align-items-center">
+                    <label class="col-sm-3 text-start text-sm-end mb-0">Full Name:</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="name${i}" class="form-control" placeholder="Type each person's info..." required/>
+                    </div>
+                </div>
+            `;
+												$("#dynamicFieldsContainer").append(inputHTML);
+											}
+
+											// Display the total price
+											$('#totalPrice').val(`${totalPrice}`);
+
+											$('#zoomedInImageModal').modal('hide');
+											// console.log("First modal hidden");
+
+											// Delay the opening of the new modal
+											setTimeout(function() {
+												// console.log("Opening second modal");
+												$('#formModal').modal('show');
+											}, 500);  // Delay is in milliseconds
+										});
+									});
+
+									// Show the first modal again when the second modal is closed
+									$('#formModal').on('hidden.bs.modal', function (e) {
+										$('#zoomedInImageModal').modal('show');
+									});
+
+									//Proceed Button Modal Close and open Payment
+									$('#proceedBtn').click(function() {
+										const allNamesEntered = $('input[name^="name"]').get().every(function(input) {
+											return $(input).val().length > 0;
+										});
+
+										if (!allNamesEntered) {
+											alert('Please enter all names');
+											return;
+										}
+										$('#formModal').modal('hide');
+
+										setTimeout(function() {
+											$('#zoomedInImageModal').modal('hide');
+										}, 790);
+										setTimeout(function() {
+											$('#paymentModal').modal('show');
+										}, 800);
+									});
+
+									//Limit digits on Credit Card inputs
+									$('input[name^="card-numbers-"]').on('input', function(e) {
+										if ($(this).val().length > 4) {
+											$(this).val($(this).val().slice(0, 4));
+										}
+									});
+
+									//Generation Captcha Function 5-digit random number
+									function generateCaptcha() {
+										const captcha = Math.floor(10000 + Math.random() * 90000); // generates a 5 digit number
+										$('#captchaDiv').html(captcha);
+									}
+									//Check Mail Format
+									function validateEmail(email) {
+										const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+										return re.test(String(email).toLowerCase());
+									}
+
+									//event listener on payment modal for CAPTCHA
+									$('#paymentModal').on('shown.bs.modal', function () {
+										generateCaptcha();
+									});
+
+
+									//PAY NOW CLICK EVENT LISTENER
+									$('#payNowBtn').click(function() {
+										const userCaptcha = $('input[name="verify-captcha"]').val();
+										const correctCaptcha = $('#captchaDiv').html();
+										if (userCaptcha !== correctCaptcha) {
+											alert("The Captcha answer was incorrect.");
+										} else {
+											// The Captcha answer is correct. Continue with payment.
+											const eventId = getEventIdFromUrl();
+											const ticketType = $('input[name="inlineRadioOptions"]:checked').val();
+											const seats = $(`.seat-checkbox.ticket-type-${ticketType}:checked`).map(function() {
+												return $(this).val();
+											}).get();
+											const totalPrice = $('#totalPrice').val();
+											const fullNames = $('input[name^="name"]').map(function() {
+												return $(this).val();
+											}).get();
+											const email = $('#orderEmail').val();
+											if (!validateEmail(email)) {
+												alert("Invalid email");
+												return;
+											}
+											if(!$('input[name="creditCardType"]:checked').val()) {
+												alert("Please select a card type");
+												return;
+											}
+											const creditCardType = $('input[name="creditCardType"]:checked').val();
+
+											const creditCardNumberParts = $('input[name^="card-numbers-"]').map(function() {
+												return $(this).val();
+											}).get();
+
+											const allPartsFilled = creditCardNumberParts.every(function(part) {
+												return part.length > 3;
+											});
+
+											if (!allPartsFilled) {
+												alert("Please fill in all credit card number fields");
+												return;
+											}
+
+											const creditCardNumber = creditCardNumberParts.join(' ');
+
+											const order = {
+												eventId,
+												ticketType,
+												seats,
+												totalPrice,
+												fullNames,
+												email,
+												creditCard: {
+													type: creditCardType,
+													number: creditCardNumber
+												}
+											};
+
+											$.post('/createOrder', order, function(response) {
+												if (response.success) {
+													alert('Order created successfully!');
+													// Updating the event collection with booked seats
+													$.post('/updateEventSeats', { eventId, ticketType, seats }, function(updateResponse) {
+														if (updateResponse.success) {
+															// The event's bookedSeats have been updated successfully
+															console.log("Event's bookedSeats updated successfully.");
+														} else {
+															// Failed to update the event's bookedSeats
+															console.error('Failed to update event seats: ' + updateResponse.error);
+														}
+													});
+													window.location.href = 'page-event-complete.html';
+												} else {
+													if (response.error === 'Please Log in or Register') {
+														alert(response.error);
+														window.location.href = 'sign-in-up-page.html';
+													} else {
+														alert('Failed to create order: ' + response.error);
+													}
+												}
+											});
+										}
+									});
+
+
+
+								});
+
+							</script>
+							<div class="row">
+								<div class="col">
+
+									<h3 class="mt-5 mb-3">Description</h3>
+<!--									Event Description-->
+									<p><a href="#"></a></p>
+
+									<hr class="solid my-5">
+
+									<h3 class="mt-5 mb-3">Features</h3>
+
+									<ul class="list list-icons list-secondary row m-0">
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Air conditioning <a href="#" data-bs-toggle="tooltip" data-bs-animation="false" data-bs-placement="top" title="+ Central Heating"><i class="fas fa-info-circle"></i></a></li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Big Amphitheater</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> High-Speed Wi-Fi</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Post-Event Parties</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Gourmet Catering</li>
+										<li class="col-sm-6 col-lg-4 custom-list-item-disabled"><i class="fas fa-check"></i> Tech Exhibition Booths</li>
+										<li class="col-sm-6 col-lg-4 custom-list-item-disabled"><i class="fas fa-check"></i> Virtual Reality Experiences</li>
+										<li class="col-sm-6 col-lg-4 custom-list-item-disabled"><i class="fas fa-check"></i> Product Demonstrations</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Networking Sessions</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Panel Discussions</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Keynote Speeches</li>
+										<li class="col-sm-6 col-lg-4"><i class="fas fa-check"></i> Interactive Workshops</li>
+									</ul>
+
+									<hr class="solid my-5">
+
+									<div id="map">
+										<h3 class="mt-5 mb-3">Map Location</h3>
+
+<!--										eventCoordinates on iframe-->
+										<div class="border-radius overflow-hidden mt-0 mb-4">
+											<div id="googlemaps" class="google-map m-0"></div>
+										</div>
+									</div>
+
+								</div>
+							</div>
+
+						</div>
+
+<!--						Agents-->
+						<div class="col-lg-3">
+							<div class="row">
+								<div class="col-12 col-sm-6 col-lg-12">
+									<div class="card custom-card-info custom-card-info-shadow bg-color-primary text-color-light border-0 mb-4">
+										<div class="card-body bg-transparent p-relative p-4 my-2 text-center z-index-1">
+											<h3 class="text-color-light font-weight-semibold text-5 d-block mb-4">Our Agents</h3>
+
+											<div class="owl-carousel owl-theme dots-light mb-0 pb-0" data-plugin-options="{'items': 1, 'autoplay': true, 'autoplayTimeout': 5000, 'margin': 10}">
+												<div>
+													<a href="#" class="text-decoration-none">
+														<img alt="" class="img-fluid rounded-circle m-auto" src="img/team/team-1.jpg" style="max-width: 110px;">
+														<strong class="text-color-light font-weight-semibold text-4 line-height-5 d-block mt-3 mb-1 text-center">John Dunkham</strong>
+													</a>
+													<a class="opacity-7 text-color-light d-block text-center line-height-5 text-3" href="tel:12345678">(800) 123-4567</a>
+													<a class="opacity-7 text-color-light d-block text-center line-height-5 text-3 pb-2" href="mailto:you@domain.com">you@domain.com</a>
+												</div>
+												<div>
+													<a href="#" class="text-decoration-none">
+														<img alt="" class="img-fluid rounded-circle m-auto" src="img/team/team-2.jpg" style="max-width: 110px;">
+														<strong class="text-color-light font-weight-semibold text-4 line-height-5 d-block mt-3 mb-1 text-center">Jessica Doe</strong>
+													</a>
+													<a class="opacity-7 text-color-light d-block text-center line-height-5 text-3" href="tel:12345678">(800) 123-4567</a>
+													<a class="opacity-7 text-color-light d-block text-center line-height-5 text-3 pb-2" href="mailto:you@domain.com">you@domain.com</a>
+												</div>
+												<div>
+													<a href="#" class="text-decoration-none">
+														<img alt="" class="img-fluid rounded-circle m-auto" src="img/team/team-4.jpg" style="max-width: 110px;">
+														<strong class="text-color-light font-weight-semibold text-4 line-height-5 d-block mt-3 mb-1 text-center">Rashmi Ravi</strong>
+													</a>
+													<a class="opacity-7 text-color-light d-block text-center line-height-5 text-3" href="tel:12345678">(800) 123-4567</a>
+													<a class="opacity-7 text-color-light d-block text-center line-height-5 text-3 pb-2" href="mailto:you@domain.com">you@domain.com</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+					</div>
+				</div>
+<!--				Footer-->
+				<footer id="footer" class="m-0">
+					<div class="container py-3">
+						<div class="row py-5">
+							<div class="col-md-4 col-lg-3">
+								<h4 class="mb-3">Tech-RO Solutions</h4>
+								<p class="mb-0">
+									Vasilissis Sofias 91, Athina 115 21<br>
+									ATHENS, ATH<br>
+									Phone : 123-456-7890<br>
+									Email : <a class="text-color-secondary" href="mailto:techroconfirmorder@gmail.com">techroconfirmorder@gmail.com</a>
+								</p>
+							</div>
+
+							<div class="col-md-2">
+								<h4 class="mb-3">Links</h4>
+								<nav class="nav-footer">
+									<ul class="list-unstyled mb-0">
+										<li>
+											<a href="aboutus.html" class="custom-color-2 text-decoration-none">
+												About Us
+											</a>
+										</li>
+										<li>
+											<a href="page-event-list.html" class="custom-color-2 text-decoration-none">
+												Our Events
+											</a>
+										</li>
+										<li>
+											<a href="index-one-page.html" class="custom-color-2 text-decoration-none">
+												Home
+											</a>
+										</li>
+									</ul>
+								</nav>
+							</div>
+						</div>
+					</div>
+					<div class="footer-copyright pb-0">
+						<div class="container">
+							<div class="row ">
+								<div class="col text-center py-4">
+									<p>© Copyright Tech-Ro 2023. All Rights Reserved.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</footer>
+			</div>
+		</div>
+
+		<!-- Vendor -->
+		<script src="vendor/jquery/jquery.min.js"></script>
+		<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+		<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+		<script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="vendor/jquery.validation/jquery.validate.min.js"></script>
+		<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+		<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+		<script src="vendor/lazysizes/lazysizes.min.js"></script>
+		<script src="vendor/isotope/jquery.isotope.min.js"></script>
+		<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+		<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script src="vendor/vide/jquery.vide.min.js"></script>
+		<script src="vendor/vivus/vivus.min.js"></script>
+
+		<!-- Theme Base, Components and Settings -->
+		<script src="js/theme.js"></script>
+
+		<!-- Current Page Vendor and Views -->
+		<script src="js/views/view.contact.js"></script>
+
+		<!-- Demo -->
+		<script src="js/demos/demo-real-estate.js"></script>
+
+		<!-- Theme Custom -->
+		<script src="js/custom.js"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="js/theme.init.js"></script>
+
+		<script>
+			$(document).ready(function() {
+				const urlParams = new URLSearchParams(window.location.search);
+				const eventId = urlParams.get('id');
+
+				$.get(`/getEventDetails?id=${eventId}`, function(eventDetails) {
+					console.log(eventDetails);
+
+					// Set the event name
+					$('.col-md-8.order-2.order-md-1.align-self-center.p-static h1').text(eventDetails.eventName);
+					$('.table tbody tr:eq(0) td:eq(1)').text(eventDetails.eventName);
+
+					// Set the total tickets for each type
+					$('.table tbody tr:eq(2) td:eq(1)').text('Total Type A Tickets: ' + eventDetails.tickets.A.totalSeats);
+					$('.table tbody tr:eq(3) td:eq(1)').text('Total Type B Tickets: ' + eventDetails.tickets.B.totalSeats);
+					$('.table tbody tr:eq(4) td:eq(1)').text('Total Type C Tickets: ' + eventDetails.tickets.C.totalSeats);
+
+					// Set the event description
+					$('.col-lg-9 p').text(eventDetails.eventDescription);
+
+					// Set the event image
+					$('.thumb-gallery-detail').html('<div class="border-radius overflow-hidden"><a href="' + eventDetails.eventImage + '"><span class="thumb-info thumb-info-centered-info thumb-info-no-borders text-4"><span class="thumb-info-wrapper text-4"><img alt="Property Detail" src="' + eventDetails.eventImage + '" class="img-fluid"><span class="thumb-info-title text-4"><span class="thumb-info-inner text-4"><i class="icon-magnifier icons text-4"></i></span></span></span></span></a></div>');
+
+					// Set the map location
+					$('#googlemaps').html('<iframe src="https://maps.google.com/maps?q=' + eventDetails.eventCoordinates.lat + ',' + eventDetails.eventCoordinates.long + '&hl=es;z=14&amp;output=embed" width="100%" height="400px" style="border:1px solid black;"></iframe>');
+				});
+			});
+
+		</script>
+		<!-- Session Check and Content Output -->
+		<script>
+			$(document).ready(function() {
+				$.get('/check-session', function(data) {
+					if (!data.loggedIn) {
+						window.location.href = "/sign-in-up-page.html";
+					}
+					if (data.loggedIn) {
+						$("#accountDropDown").show();
+						$("#loginBtn").hide();
+						$("#registerBtn").hide();
+						$("#welcomeUsr").html(`<strong class="text-color-dark text-4">Welcome ${data.username}!</strong>`);
+					} else {
+						$("#accountDropDown").hide();
+						$("#loginBtn").show();
+						$("#registerBtn").show();
+					}
+				});
+
+				$('#logoutBtn').click(function() {
+					$.post('/logout', function() {
+						location.reload();
+					});
+				});
+			});
+
+
+
+		</script>
+	</body>
+</html>

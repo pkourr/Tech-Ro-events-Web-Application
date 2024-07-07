@@ -1,0 +1,502 @@
+<!doctype html>
+<html class="modern fixed has-top-menu has-left-sidebar-half">
+	<head>
+
+		<!-- Basic -->
+		<meta charset="UTF-8">
+
+		<title>Customer Details | Tech-Ro Admin</title>
+		<meta name="keywords" content="Tech Events" />
+		<meta name="description" content="Tech-Ro | Your choice for Tech Events!">
+		<meta name="author" content="tech-ro.com">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+		<link rel="manifest" href="../img/favicon/site.webmanifest">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<!-- Web Fonts  -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700,800,900" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="vendor/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="vendor/boxicons/css/boxicons.min.css" />
+		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+		<link rel="stylesheet" href="vendor/pnotify/pnotify.custom.css" />
+
+		<!--darkmode btn-->
+		<link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="../vendor/fontawesome-free/css/all.css">
+		<link rel="stylesheet" href="../css/theme-elements.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="css/theme.css" />
+		<link rel="stylesheet" href="../css/theme-elements.css" />
+
+		<!-- Theme Layout -->
+		<link rel="stylesheet" href="css/layouts/modern.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="css/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Head Libs -->
+		<script src="vendor/modernizr/modernizr.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!--Session check or redirect-->
+		<script>
+			$(document).ready(function() {
+				// Check if admin is logged in
+				$.get('/check-admin-session', function(data) {
+					if (!data.loggedIn) {
+						// If admin is not logged in, redirect to login page
+						window.location.href = '/admin/page-admin-sign-in.html';
+					}
+				});
+			});
+		</script>
+		<!--Dark Mode check and implement-->
+		<script>
+			$(document).ready(function() {
+				// Get the saved dark mode state from LocalStorage, if it exists
+				var darkMode = localStorage.getItem('darkMode');
+
+				// If darkMode exists and is 'true', add the .dark class and check the switch
+				if (darkMode === 'true') {
+					$('html').addClass('dark');
+					$('#darkModeBtn').prop('checked', true);
+				}
+
+				// Listen for switch state changes
+				$('#darkModeBtn').change(function() {
+					// If the switch is checked, add the .dark class and save the state
+					if ($(this).is(':checked')) {
+						$('html').addClass('dark');
+						localStorage.setItem('darkMode', 'true');
+					}
+					// If the switch is not checked, remove the .dark class and save the state
+					else {
+						$('html').removeClass('dark');
+						localStorage.setItem('darkMode', 'false');
+					}
+				});
+			});
+		</script>
+		<!--Logout Button-->
+		<script>
+			$(document).ready(function() {
+				$('#adminLogout').click(function(event) {
+					// Prevent the default action
+					event.preventDefault();
+
+					$.post('/admin-logout', function(data) {
+						// If the server responds successfully, redirect to the login page
+						window.location.href = 'page-admin-sign-in.html';
+					});
+				});
+			});
+		</script>
+
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+			<header class="header header-nav-menu header-nav-links">
+				<div class="logo-container">
+					<a href="../index-one-page.html" class="logo">
+						<img src="../img/tech-ro-low-resolution-logo-color-on-transparent-background.png" class="logo-image" width="90" height="50" alt="Porto Admin" /><img src="../img/logo_transparent_blacktxt.png" class="logo-image-mobile" width="90" height="51" alt="Porto Admin" />
+					</a>
+					<button class="btn header-btn-collapse-nav d-lg-none" data-bs-toggle="collapse" data-bs-target=".header-nav">
+						<i class="fas fa-bars"></i>
+					</button>
+				</div>
+
+				<!-- start: user box -->
+				<div class="header-right">
+
+					<span class="separator"></span>
+					<label class="form-check-label" for="darkModeBtn"><i class="fa-sharp fa-solid fa-circle-half-stroke fa-spin fa-spin-reverse fa-xl" style="color: #464f5d;"></i></label>
+					<input id="darkModeBtn" type="checkbox" name="darkModeBtn" class="gdpe-input custom-checkbox-switch mb-1" value="darkmode" />
+					<div id="userbox" class="userbox">
+						<a href="#" data-bs-toggle="dropdown">
+
+							<span class="profile-picture profile-picture-as-text">A</span>
+							<div class="profile-info profile-info-no-role" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+								<span class="name">Hi, <strong id="adminUser" class="font-weight-semibold">Admin</strong></span>
+							</div>
+
+							<i class="fas fa-chevron-down text-color-dark"></i>
+						</a>
+
+						<div class="dropdown-menu">
+							<ul class="list-unstyled">
+								<li>
+									<a role="menuitem" tabindex="-1" href="page-admin-dashboard.html"><i class="bx bx-user"></i> My Dashboard</a>
+								</li>
+								<li>
+									<a id="adminLogout" role="menuitem" tabindex="-1" href="page-admin-sign-in.html"><i class="bx bx-log-out"></i> Logout</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- end: search & user box -->
+			</header>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+
+					<div class="sidebar-header">
+						<div class="sidebar-toggle d-none d-md-flex" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+							<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+						</div>
+					</div>
+
+					<div class="nano">
+						<div class="nano-content">
+							<nav id="menu" class="nav-main" role="navigation">
+
+								<ul class="nav nav-main">
+									<li>
+										<a class="nav-link" href="page-admin-dashboard.html">
+											<i class="bx bx-home-alt" aria-hidden="true"></i>
+											<span>Dashboard</span>
+										</a>
+									</li>
+									<li class="nav-group-label">Admin Menu</li>
+									<li class="nav-parent nav-expanded nav-active">
+										<a class="nav-link" href="#">
+											<i class="bx bx-cart-alt" aria-hidden="true"></i>
+											<span>Actions</span>
+										</a>
+										<ul class="nav nav-children">
+											<li>
+												<a class="nav-link" href="page-admin-dashboard.html">
+													- Dashboard
+												</a>
+											</li>
+											<li class="nav-active">
+												<a class="nav-link" href="page-admin-user-list.html">
+													- User List
+												</a>
+											</li>
+											<li>
+												<a class="nav-link" href="page-admin-campaign-edit.html">
+													- Campaign Edit
+												</a>
+											</li>
+											<li>
+												<a class="nav-link" href="page-admin-event-list.html">
+													- Event List
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a class="nav-link" href="mailbox-folder.html">
+											<i class="bx bx-envelope" aria-hidden="true"></i>
+											<span>Mailbox</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<script>
+							// Maintain Scroll Position
+							if (typeof localStorage !== 'undefined') {
+								if (localStorage.getItem('sidebar-left-position') !== null) {
+									var initialPosition = localStorage.getItem('sidebar-left-position'),
+											sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+
+									sidebarLeft.scrollTop = initialPosition;
+								}
+							}
+						</script>
+					</div>
+
+				</aside>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body content-body-modern mt-0">
+					<header class="page-header page-header-left-inline-breadcrumb">
+						<h2 class="font-weight-bold text-6">User Details</h2>
+						<div class="right-wrapper">
+							<ol class="breadcrumbs">
+
+								<li><span>Home</span></li>
+
+								<li><span>Dashboard</span></li>
+
+								<li><span>User List</span></li>
+
+							</ol>
+						</div>
+					</header>
+
+					<!-- start: page -->
+					<form class="ecommerce-form action-buttons-fixed" action="#" method="post">
+						<div class="row">
+							<div class="col">
+								<section class="card card-modern card-big-info">
+									<div class="card-body">
+										<div class="row">
+											<div class="col-lg-2-5 col-xl-1-5">
+												<i class="card-big-info-icon bx bx-user-circle"></i>
+												<h2 class="card-big-info-title">Account Info</h2>
+												<p class="card-big-info-desc">This section lists all the info related to the user picked in the table in the previous page.</p>
+											</div>
+											<div class="col-lg-3-5 col-xl-4-5">
+												<div class="form-group row align-items-center pb-3">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Username</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userUsername" type="text" class="form-control form-control-modern" name="userUsername" value="" disabled />
+													</div>
+												</div>
+												<div class="form-group row align-items-center pb-3">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Password</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userPassword" type="password" class="form-control form-control-modern" name="userPassword" value="" disabled />
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">E-Mail</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userEmail" type="email" class="form-control form-control-modern" name="userEmail" value="" required/>
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">First Name</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userFirstName" type="text" class="form-control form-control-modern" name="userFirstName" value="" required/>
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Last Name</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userLastName" type="text" class="form-control form-control-modern" name="userLastName" value="" required/>
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">Address</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userAddress" type="text" class="form-control form-control-modern" name="userAddress" value="" required/>
+													</div>
+												</div>
+												<div class="form-group row align-items-center">
+													<label class="col-lg-5 col-xl-3 control-label text-lg-end mb-0">User Identifier</label>
+													<div class="col-lg-7 col-xl-6">
+														<input id="userId" type="text" class="form-control form-control-modern" name="userId" value="" disabled/>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12 col-md-auto">
+								<button id="saveUserBtn" type="submit" class="submit-button btn btn-primary btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1" data-loading-text="Loading...">
+									<i class="bx bx-save text-4 me-2"></i> Save Customer
+								</button>
+							</div>
+							<div class="col-12 col-md-auto px-md-0 mt-3 mt-md-0">
+								<a href="page-admin-user-list.html" class="cancel-button btn btn-light btn-px-4 py-3 border font-weight-semibold text-color-dark text-3">Cancel</a>
+							</div>
+							<div class="col-12 col-md-auto ms-md-auto mt-3 mt-md-0 ms-auto">
+								<a id="deleteUserBtn" href="page-admin-user-list.html" class="delete-button btn btn-danger btn-px-4 py-3 d-flex align-items-center font-weight-semibold line-height-1">
+									<i class="bx bx-trash text-4 me-2"></i> Delete Customer
+								</a>
+							</div>
+						</div>
+					</form>
+					<!-- end: page -->
+					<script>
+						// Wait until the document is fully loaded
+						$(document).ready(function() {
+
+							// Get the URL parameters
+							let params = (new URL(document.location)).searchParams;
+							// Get the ID from URL
+							let id = params.get('id');
+
+							// Fetch user data and populate form fields
+							$.ajax({
+								type: "GET",
+								url: '/get-user/' + id,
+								dataType: "json",
+								success: function (response) {
+									// Populate form fields
+									$('#userUsername').val(response.username);
+									$('#userPassword').val(response.password);
+									$('#userEmail').val(response.email);
+									$('#userFirstName').val(response.firstName);
+									$('#userLastName').val(response.lastName);
+									$('#userAddress').val(response.address);
+									$('#userId').val(response._id);
+								}
+							});
+
+							// Event handler for the "Save Changes" button
+							$('#saveUserBtn').on('click', function(event) {
+								event.preventDefault();
+
+								// Collect form data
+								let formData = {
+									email: $('#userEmail').val(),
+									firstName: $('#userFirstName').val(),
+									lastName: $('#userLastName').val(),
+									address: $('#userAddress').val(),
+								};
+
+								// Send a PUT request
+								$.ajax({
+									type: "PUT",
+									url: '/update-user/' + id,
+									data: JSON.stringify(formData),
+									contentType: "application/json",
+									success: function (response) {
+										alert('User updated successfully!');
+										location.reload();
+									}
+								});
+
+							});
+
+							// Event handler for the "Delete User" button
+							$('#deleteUserBtn').on('click', function(event) {
+								event.preventDefault();
+
+								// Confirm user action
+								if (confirm('Are you sure you want to delete this user? This action cannot be undone.')) {
+									// Send a DELETE request
+									$.ajax({
+										type: "DELETE",
+										url: '/delete-user/' + id,
+										success: function (response) {
+											alert('User deleted successfully!');
+											window.location.href = '/admin/page-admin-user-list.html';
+										}
+									});
+								}
+							});
+
+						});
+
+					</script>
+				</section>
+			</div>
+
+			<aside id="sidebar-right" class="sidebar-right">
+				<div class="nano">
+					<div class="nano-content">
+						<a href="#" class="mobile-close d-md-none">
+							Collapse <i class="fas fa-chevron-right"></i>
+						</a>
+
+						<div class="sidebar-right-wrapper">
+
+							<div class="sidebar-widget widget-calendar">
+								<h6>Upcoming Tasks</h6>
+								<div data-plugin-datepicker data-plugin-skin="dark"></div>
+
+								<ul>
+									<li>
+										<time datetime="2021-04-19T00:00+00:00">04/19/2021</time>
+										<span>Company Meeting</span>
+									</li>
+								</ul>
+							</div>
+
+							<div class="sidebar-widget widget-friends">
+								<h6>Friends</h6>
+								<ul>
+									<li class="status-online">
+										<figure class="profile-picture">
+											<img src="img/!sample-user.jpg" alt="Joseph Doe" class="rounded-circle">
+										</figure>
+										<div class="profile-info">
+											<span class="name">Joseph Doe Junior</span>
+											<span class="title">Hey, how are you?</span>
+										</div>
+									</li>
+									<li class="status-online">
+										<figure class="profile-picture">
+											<img src="img/!sample-user.jpg" alt="Joseph Doe" class="rounded-circle">
+										</figure>
+										<div class="profile-info">
+											<span class="name">Joseph Doe Junior</span>
+											<span class="title">Hey, how are you?</span>
+										</div>
+									</li>
+									<li class="status-offline">
+										<figure class="profile-picture">
+											<img src="img/!sample-user.jpg" alt="Joseph Doe" class="rounded-circle">
+										</figure>
+										<div class="profile-info">
+											<span class="name">Joseph Doe Junior</span>
+											<span class="title">Hey, how are you?</span>
+										</div>
+									</li>
+									<li class="status-offline">
+										<figure class="profile-picture">
+											<img src="img/!sample-user.jpg" alt="Joseph Doe" class="rounded-circle">
+										</figure>
+										<div class="profile-info">
+											<span class="name">Joseph Doe Junior</span>
+											<span class="title">Hey, how are you?</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</aside>
+
+		</section>
+
+		<!-- Vendor -->
+		<script src="vendor/jquery/jquery.js"></script>
+		<script src="vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="vendor/popper/umd/popper.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="vendor/common/common.js"></script>
+		<script src="vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+		<!-- Specific Page Vendor -->
+		<script src="vendor/jquery-validation/jquery.validate.js"></script>
+		<script src="vendor/pnotify/pnotify.custom.js"></script>
+
+		<!-- Theme Base, Components and Settings -->
+		<script src="js/theme.js"></script>
+
+		<!-- Theme Custom -->
+		<script src="js/custom.js"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="js/theme.init.js"></script>
+
+		<!-- Examples -->
+		<script src="js/examples/examples.header.menu.js"></script>
+		<script src="js/examples/examples.ecommerce.form.js"></script>
+
+	</body>
+</html>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html class="modern fixed has-top-menu has-left-sidebar-half">
+	<head>
+
+		<!-- Basic -->
+		<meta charset="UTF-8">
+
+		<title>Event List | Tech-Ro Admin</title>
+		<meta name="keywords" content="Tech Events" />
+		<meta name="description" content="Tech-Ro | Your choice for Tech Events!">
+		<meta name="author" content="tech-ro.com">
+
+		<!-- Favicon -->
+		<link rel="apple-touch-icon" sizes="180x180" href="../img/favicon/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="../img/favicon/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="../img/favicon/favicon-16x16.png">
+		<link rel="manifest" href="../img/favicon/site.webmanifest">
+
+		<!-- Mobile Metas -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+		<!-- Web Fonts  -->
+		<link href="https://fonts.googleapis.com/css?family=Poppins:100,300,400,600,700,800,900" rel="stylesheet" type="text/css">
+
+		<!-- Vendor CSS -->
+		<link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" />
+		<link rel="stylesheet" href="vendor/animate/animate.compat.css">
+		<link rel="stylesheet" href="vendor/font-awesome/css/all.min.css" />
+		<link rel="stylesheet" href="vendor/boxicons/css/boxicons.min.css" />
+		<link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.css" />
+		<link rel="stylesheet" href="vendor/bootstrap-datepicker/css/bootstrap-datepicker3.css" />
+		<link rel="stylesheet" href="vendor/datatables/media/css/dataTables.bootstrap5.css" />
+
+		<!--darkmode btn-->
+		<link rel="stylesheet" href="../vendor/fontawesome-free/css/all.min.css">
+		<link rel="stylesheet" href="../vendor/fontawesome-free/css/all.css">
+		<link rel="stylesheet" href="../css/theme-elements.css" />
+
+		<!-- Theme CSS -->
+		<link rel="stylesheet" href="css/theme.css" />
+
+		<!-- Theme Layout -->
+		<link rel="stylesheet" href="css/layouts/modern.css" />
+
+		<!-- Skin CSS -->
+		<link rel="stylesheet" href="css/skins/default.css" />
+
+		<!-- Theme Custom CSS -->
+		<link rel="stylesheet" href="css/custom.css">
+
+		<!-- Head Libs -->
+		<script src="vendor/modernizr/modernizr.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+		<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+		<!--Session check or redirect-->
+		<script>
+			$(document).ready(function() {
+				// Check if admin is logged in
+				$.get('/check-admin-session', function(data) {
+					if (!data.loggedIn) {
+						// If admin is not logged in, redirect to login page
+						window.location.href = '/admin/page-admin-sign-in.html';
+					}
+				});
+			});
+		</script>
+		<!--Dark Mode check and implement-->
+		<script>
+			$(document).ready(function() {
+				// Get the saved dark mode state from LocalStorage, if it exists
+				var darkMode = localStorage.getItem('darkMode');
+
+				// If darkMode exists and is 'true', add the .dark class and check the switch
+				if (darkMode === 'true') {
+					$('html').addClass('dark');
+					$('#darkModeBtn').prop('checked', true);
+				}
+
+				// Listen for switch state changes
+				$('#darkModeBtn').change(function() {
+					// If the switch is checked, add the .dark class and save the state
+					if ($(this).is(':checked')) {
+						$('html').addClass('dark');
+						localStorage.setItem('darkMode', 'true');
+					}
+					// If the switch is not checked, remove the .dark class and save the state
+					else {
+						$('html').removeClass('dark');
+						localStorage.setItem('darkMode', 'false');
+					}
+				});
+			});
+		</script>
+		<!--Logout Button-->
+		<script>
+			$(document).ready(function() {
+				$('#adminLogout').click(function(event) {
+					// Prevent the default action
+					event.preventDefault();
+
+					$.post('/admin-logout', function(data) {
+						// If the server responds successfully, redirect to the login page
+						window.location.href = 'page-admin-sign-in.html';
+					});
+				});
+			});
+		</script>
+
+	</head>
+	<body>
+		<section class="body">
+
+			<!-- start: header -->
+			<header class="header header-nav-menu header-nav-links">
+				<div class="logo-container">
+					<a href="../index-one-page.html" class="logo">
+						<img src="../img/tech-ro-low-resolution-logo-color-on-transparent-background.png" class="logo-image" width="90" height="50" alt="Porto Admin" /><img src="../img/logo_transparent_blacktxt.png" class="logo-image-mobile" width="90" height="51" alt="Porto Admin" />
+					</a>
+					<button class="btn header-btn-collapse-nav d-lg-none" data-bs-toggle="collapse" data-bs-target=".header-nav">
+						<i class="fas fa-bars"></i>
+					</button>
+				</div>
+
+				<!-- start: user box -->
+				<div class="header-right">
+
+					<span class="separator"></span>
+					<label class="form-check-label" for="darkModeBtn"><i class="fa-sharp fa-solid fa-circle-half-stroke fa-spin fa-spin-reverse fa-xl" style="color: #464f5d;"></i></label>
+					<input id="darkModeBtn" type="checkbox" name="darkModeBtn" class="gdpe-input custom-checkbox-switch mb-1" value="darkmode" />
+					<div id="userbox" class="userbox">
+						<a href="#" data-bs-toggle="dropdown">
+
+							<span class="profile-picture profile-picture-as-text">A</span>
+							<div class="profile-info profile-info-no-role" data-lock-name="John Doe" data-lock-email="johndoe@okler.com">
+								<span class="name">Hi, <strong id="adminUser" class="font-weight-semibold">Admin</strong></span>
+							</div>
+
+							<i class="fas fa-chevron-down text-color-dark"></i>
+						</a>
+
+						<div class="dropdown-menu">
+							<ul class="list-unstyled">
+								<li>
+									<a role="menuitem" tabindex="-1" href="page-admin-dashboard.html"><i class="bx bx-user"></i> My Dashboard</a>
+								</li>
+								<li>
+									<a id="adminLogout" role="menuitem" tabindex="-1" href="page-admin-sign-in.html"><i class="bx bx-log-out"></i> Logout</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<!-- end: search & user box -->
+			</header>
+			<!-- end: header -->
+
+			<div class="inner-wrapper">
+				<!-- start: sidebar -->
+				<aside id="sidebar-left" class="sidebar-left">
+
+					<div class="sidebar-header">
+						<div class="sidebar-toggle d-none d-md-flex" data-toggle-class="sidebar-left-collapsed" data-target="html" data-fire-event="sidebar-left-toggle">
+							<i class="fas fa-bars" aria-label="Toggle sidebar"></i>
+						</div>
+					</div>
+
+					<div class="nano">
+						<div class="nano-content">
+							<nav id="menu" class="nav-main" role="navigation">
+
+								<ul class="nav nav-main">
+									<li>
+										<a class="nav-link" href="page-admin-dashboard.html">
+											<i class="bx bx-home-alt" aria-hidden="true"></i>
+											<span>Dashboard</span>
+										</a>
+									</li>
+									<li class="nav-group-label">Admin Menu</li>
+									<li class="nav-parent nav-expanded nav-active">
+										<a class="nav-link" href="#">
+											<i class="bx bx-cart-alt" aria-hidden="true"></i>
+											<span>Actions</span>
+										</a>
+										<ul class="nav nav-children">
+											<li>
+												<a class="nav-link" href="page-admin-dashboard.html">
+													- Dashboard
+												</a>
+											</li>
+											<li>
+												<a class="nav-link" href="page-admin-user-list.html">
+													- User List
+												</a>
+											</li>
+											<li>
+												<a class="nav-link" href="page-admin-campaign-edit.html">
+													- Campaign Edit
+												</a>
+											</li>
+											<li class="nav-active">
+												<a class="nav-link" href="page-admin-event-list.html">
+													- Event List
+												</a>
+											</li>
+										</ul>
+									</li>
+									<li>
+										<a class="nav-link" href="mailbox-folder.html">
+											<i class="bx bx-envelope" aria-hidden="true"></i>
+											<span>Mailbox</span>
+										</a>
+									</li>
+								</ul>
+							</nav>
+						</div>
+						<script>
+							// Maintain Scroll Position
+							if (typeof localStorage !== 'undefined') {
+								if (localStorage.getItem('sidebar-left-position') !== null) {
+									var initialPosition = localStorage.getItem('sidebar-left-position'),
+											sidebarLeft = document.querySelector('#sidebar-left .nano-content');
+
+									sidebarLeft.scrollTop = initialPosition;
+								}
+							}
+						</script>
+					</div>
+
+				</aside>
+				<!-- end: sidebar -->
+
+				<section role="main" class="content-body content-body-modern mt-0">
+					<header class="page-header page-header-left-inline-breadcrumb">
+						<h2 class="font-weight-bold text-6">Event List</h2>
+						<div class="right-wrapper">
+							<ol class="breadcrumbs">
+
+								<li><span>Home</span></li>
+
+								<li><span>Dashboard</span></li>
+
+								<li><span>Events</span></li>
+
+							</ol>
+						</div>
+					</header>
+
+					<!-- start: page -->
+					<div class="row">
+						<div class="col">
+
+							<div class="card card-modern">
+								<div class="card-body">
+									<div class="datatables-header-footer-wrapper">
+										<div class="datatable-header">
+											<div class="row align-items-center mb-3">
+
+												<div class="col-12 col-lg-auto mb-3 mb-lg-0">
+													<a href="page-admin-event-add.html"
+													   class="btn btn-primary btn-md font-weight-semibold btn-py-2 px-4">+
+														Add Event</a>
+												</div>
+											</div>
+										</div>
+
+										<table class="table table-ecommerce-simple table-borderless table-striped mb-0"
+											   id="datatable-ecommerce-list" style="min-width: 640px;">
+
+											<thead>
+											<tr>
+												<th id="eventId" width="25%">ID</th>
+												<th id="eventName" width="25%">Event Name</th>
+												<th id="eventDate" width="25%">Date</th>
+												<th id="eventTotalRental" width="25%">Total Tickets</th>
+											</tr>
+											</thead>
+											<tbody>
+
+<!--											<tr>-->
+<!--												<td><a href="ecommerce-orders-detail.html"><strong>ID</strong></a></td>-->
+<!--												<td><a href="ecommerce-orders-detail.html"><strong>Event Name-->
+<!--													Example</strong></a></td>-->
+<!--												<td>Nov 21, 2019</td>-->
+<!--												<td>Total Orders</td>-->
+<!--											</tr>-->
+
+											</tbody>
+										</table>
+										<hr class="solid mt-5 opacity-4">
+										<div class="datatable-footer">
+											<div class="row align-items-center justify-content-between mt-3">
+												<div class="col-md-auto order-1 mb-3 mb-lg-0">
+												</div>
+												<div class="col-lg-auto text-center order-3 order-lg-2">
+													<div class="results-info-wrapper"></div>
+												</div>
+												<div class="col-lg-auto order-2 order-lg-3 mb-3 mb-lg-0">
+													<div class="pagination-wrapper"></div>
+												</div>
+											</div>
+										</div>
+										</table>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+					<!-- end: page -->
+					<script>
+						$(document).ready(function() {
+							let table = $('#datatable-ecommerce-list').DataTable();
+
+							$.ajax({
+								url: "/eventList",
+								method: "GET",
+								success: function(data) {
+									table.clear();
+
+									data.forEach(event => {
+										const row = [
+											`<a href="page-admin-event-details.html?id=${event._id}"><strong>${event._id}</strong></a>`,
+											`<a href="page-admin-event-details.html?id=${event._id}"><strong>${event.eventName}</strong></a>`,
+											`${new Date(event.eventDate).toDateString()}`,
+											`${event.totalRentals}`
+										];
+
+										table.row.add(row);
+									});
+
+									table.draw();
+								}
+							});
+						});
+					</script>
+
+
+
+
+				</section>
+			</div>
+		</section>
+
+		<!-- Vendor -->
+		<script src="vendor/jquery/jquery.js"></script>
+		<script src="vendor/jquery-browser-mobile/jquery.browser.mobile.js"></script>
+		<script src="vendor/popper/umd/popper.min.js"></script>
+		<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+		<script src="vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+		<script src="vendor/common/common.js"></script>
+		<script src="vendor/nanoscroller/nanoscroller.js"></script>
+		<script src="vendor/magnific-popup/jquery.magnific-popup.js"></script>
+		<script src="vendor/jquery-placeholder/jquery.placeholder.js"></script>
+
+		<!-- Specific Page Vendor -->
+		<script src="vendor/datatables/media/js/jquery.dataTables.min.js"></script>
+		<script src="vendor/datatables/media/js/dataTables.bootstrap5.min.js"></script>
+
+		<!-- Theme Base, Components and Settings -->
+		<script src="js/theme.js"></script>
+
+		<!-- Theme Custom -->
+		<script src="js/custom.js"></script>
+
+		<!-- Theme Initialization Files -->
+		<script src="js/theme.init.js"></script>
+
+		<!-- Examples -->
+		<script src="js/examples/examples.header.menu.js"></script>
+		<script src="js/examples/examples.ecommerce.datatables.list.js"></script>
+
+	</body>
+</html>

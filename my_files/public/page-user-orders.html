@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Tech-Ro | Your choice for Tech Events!</title>
+
+  <meta name="keywords" content="Tech Events" />
+  <meta name="description" content="Tech-Ro | Your choice for Tech Events!">
+  <meta name="author" content="tech-ro.com">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+  <!-- Web Fonts  -->
+  <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="vendor/animate/animate.compat.css">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/theme-elements.css">
+  <link rel="stylesheet" href="css/theme-blog.css">
+  <link rel="stylesheet" href="css/theme-shop.css">
+
+  <!-- Skin CSS -->
+  <link id="skinCSS" rel="stylesheet" href="css/skins/default.css">
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Head Libs -->
+  <script src="vendor/modernizr/modernizr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Get the saved dark mode state from LocalStorage, if it exists
+      var darkMode = localStorage.getItem('darkMode');
+
+      // If darkMode exists and is 'true', add the .dark class and check the switch
+      if (darkMode === 'true') {
+        $('html').addClass('dark');
+        $('#darkModeBtn').prop('checked', true);
+      }
+
+      // Listen for switch state changes
+      $('#darkModeBtn').change(function() {
+        // If the switch is checked, add the .dark class and save the state
+        if ($(this).is(':checked')) {
+          $('html').addClass('dark');
+          localStorage.setItem('darkMode', 'true');
+        }
+        // If the switch is not checked, remove the .dark class and save the state
+        else {
+          $('html').removeClass('dark');
+          localStorage.setItem('darkMode', 'false');
+        }
+      });
+    });
+  </script>
+
+</head>
+<body data-plugin-page-transition>
+
+<div class="body">
+
+  <!--			HEADER DIV-->
+  <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 135, 'stickySetTop': '-135px', 'stickyChangeLogo': true}">
+
+    <div class="header-body header-body-bottom-border-fixed box-shadow-none border-top-0">
+      <div class="header-container container">
+        <div class="header-row py-2">
+          <div class="header-column w-100">
+            <div class="header-row justify-content-between">
+              <div class="header-logo z-index-2 col-lg-2 px-0">
+                <a href="page-event-list.html">
+                  <img alt="Tech-Ro" width="200" height="200" data-sticky-width="82" data-sticky-height="40" data-sticky-top="84" src="img/logo_transparent_blacktxt.png">
+                </a>
+              </div>
+              <div class="header-nav-features header-nav-features-no-border col-lg-5 col-xl-6 px-0 ms-0">
+                <div class="header-nav-feature ps-lg-5 pe-lg-4">
+                  <form role="search" action="page-event-list-search.html" method="get">
+                    <div class="search-with-select">
+                      <a href="#" class="mobile-search-toggle-btn me-2" data-porto-toggle-class="open">
+                        <i class="icons icon-magnifier text-color-dark text-color-hover-primary"></i>
+                      </a>
+                      <div class="search-form-wrapper input-group">
+                        <input class="form-control text-1" id="headerSearch" name="s" type="search" value="" placeholder="Search...">
+                        <div class="search-form-select-wrapper">
+                          <button class="btn" type="submit">
+                            <i class="icons icon-magnifier header-nav-top-icon text-color-dark"></i>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <label class="form-check-label" for="darkModeBtn"><i class="fa-sharp fa-solid fa-circle-half-stroke fa-spin fa-spin-reverse fa-xl" style="color: #464f5d;"></i></label>
+              <input id="darkModeBtn" type="checkbox" name="darkModeBtn" class="gdpe-input custom-checkbox-switch mb-1" value="darkmode" />
+              <div class="d-flex col-auto col-lg-2 pe-0 ps-0 ps-xl-3">
+                <div id="accountDropDown" class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2" style="display: none;">
+                  <div class="header-nav-feature header-nav-features-user header-nav-features-user-logged d-inline-flex mx-2 pe-2" id="headerAccount">
+                    <a href="#" class="header-nav-features-toggle">
+                      <i class="far fa-user"></i>My Account
+                    </a>
+
+                    <!--My Account DropDown-->
+                    <div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed header-nav-features-dropdown-force-right">
+                      <div class="row">
+                        <div class="col-8">
+                          <p class="mb-0 pb-0 text-2 line-height-1 pt-1">Tech-Ro.</p>
+                          <p id="welcomeUsr"><strong class="text-color-dark text-4">Welcome User!</strong></p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <ul class="nav nav-list-simple flex-column text-3">
+                            <li class="nav-item"><a class="nav-link" href="page-user-profile.html">My Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="page-user-orders.html">My Orders</a></li>
+                            <li id="logoutBtn" class="nav-item"><a class="nav-link border-bottom-0" href="">Log Out</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="header-column justify-content-end">
+            <div class="header-row">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-nav-bar header-nav-bar-top-border bg-color-dark-scale-5">
+        <div class="header-container container">
+          <div class="header-row">
+            <div class="header-column">
+              <div class="header-row justify-content-end">
+                <div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border justify-content-start" data-sticky-header-style="{'minResolution': 991}" data-sticky-header-style-active="{'margin-left': '105px'}" data-sticky-header-style-deactive="{'margin-left': '0'}">
+                  <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
+                    <nav class="collapse w-100">
+                      <ul class="nav nav-pills w-100" id="mainNav">
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="index-one-page.html">
+                            Home
+                          </a>
+                        </li>
+                        <li class="dropdown dropdown-mega">
+                          <a class="dropdown-item dropdown-toggle" href="aboutus.html">
+                            About Us
+                          </a>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="page-event-list.html">
+                            Events
+                          </a>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="/admin/page-admin-sign-in.html">
+                            Admin
+                          </a>
+                        </li>
+                        <li id="loginBtn" class="dropdown ms-lg-auto" style="display: none;">
+                          <a href="sign-in-up-page.html" class="dropdown-item">
+                            Sign In
+                          </a>
+                        </li>
+                        <li id="registerBtn" class="dropdown" style="display: none;">
+                          <a href="sign-in-up-page.html" class="dropdown-item">
+                            Register
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div role="main" class="main">
+
+    <section class="page-header page-header-modern bg-color-light-scale-1 page-header-lg">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 align-self-center p-static order-2 text-center">
+            <h1 class="font-weight-bold text-dark">User Events</h1>
+          </div>
+          <div class="col-md-12 align-self-center order-1">
+            <ul class="breadcrumb d-block text-center">
+              <li><a href="page-event-list.html">Home</a></li>
+              <li class="active">My Events</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container pt-3 pb-2">
+
+      <div class="row pt-2">
+        <div class="col-lg-3 mt-4 mt-lg-0">
+          <aside class="sidebar mt-2" id="sidebar">
+            <ul class="nav nav-list flex-column mb-5">
+              <li class="nav-item"><a class="nav-link text-3" href="page-user-profile.html">My Profile</a></li>
+              <li class="nav-item"><a class="nav-link text-3 text-dark active" href="page-user-orders.html">My Events</a></li>
+            </ul>
+          </aside>
+
+        </div>
+        <div id="rentalsContainer" class="col-lg-9">
+
+          <form id="rentalHistory" name="rentalList" role="form" class="needs-validation">
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2 ">Event Name:</label>
+              <div class="col-lg-9">
+                <input class="form-control text-3 h-auto py-2" type="text" name="eventName" value="" disabled>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Description:</label>
+              <div class="col-lg-9">
+                <input class="form-control text-3 h-auto py-2" type="text" name="eventDescription" value="" disabled>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Event Date:</label>
+              <div class="col-lg-9">
+                <input class="form-control text-3 h-auto py-2" type="text" name="eventDate" value="" disabled>
+              </div>
+            </div>
+<!--            <div class="form-group row">-->
+<!--              <label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Full Name:</label>-->
+<!--              <div class="col-lg-9">-->
+<!--                <input class="form-control text-3 h-auto py-2" type="text" name="fullNames" value="" disabled>-->
+<!--              </div>-->
+<!--            </div>-->
+            <div class="form-group row">
+              <label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Order E-Mail:</label>
+              <div class="col-lg-9">
+                <input class="form-control text-3 h-auto py-2" type="email" name="email" value="" disabled>
+              </div>
+            </div>
+  <!--            <div class="form-group row">-->
+  <!--              <label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Seat:</label>-->
+  <!--              <div class="col-lg-9">-->
+  <!--                <input class="form-control text-3 h-auto py-2" type="text" name="seats" value="" disabled>-->
+  <!--              </div>-->
+  <!--            </div>-->
+            <div class="form-group row">
+              <div class="form-group col-lg-9">
+
+              </div>
+              <div id="emailBtn" class="form-group col-lg-3">
+                <button name="resendEmail" class="btn btn-secondary btn-rounded btn-with-arrow-solid mb-2">Re-send Email<span><i class="fas fa-chevron-right"></i></span></button>
+              </div>
+            </div>
+            <div id="emailSuccess" class="alert alert-primary" style="display: none;">
+              <strong>Done!</strong> An e-mail has been sent with your ticket info! Please check your spam folder <a href="https://mail.google.com/" class="alert-link">HERE! </a>.
+            </div>
+            <div id="emailFail" class="alert alert-default" style="display: none;">
+              <strong>NOTICE!</strong> The event has ended. <a href="page-event-list.html" class="alert-link">Stay tuned for the upcoming ones! </a>.
+            </div>
+            <div class="divider divider-xs divider-style-4 taller appear-animation" data-appear-animation="bounceIn" data-appear-animation-delay="300">
+              <i class="fas fa-chevron-down"></i>
+            </div>
+          </form>
+
+
+
+
+        </div>
+        <script>
+          $(document).ready(function() {
+            $.get("/userOrders", function(rentals) {
+              // console.log("Received rentals: ", rentals);
+
+              rentals.forEach((rental, index) => {
+                // Clone the template form and set a unique id
+                let rentalForm = $("#rentalHistory").clone();
+                rentalForm.attr("id", "rentalHistory" + index);
+
+                // Populate the form with the rental and event data
+                // console.log("Processing rental: ", rental);
+                rentalForm.find("input[name='eventName']").val(rental.event.eventName);
+                // console.log("Set eventName to: ", rental.event.eventName);
+
+                rentalForm.find("input[name='eventDescription']").val(rental.event.eventDescription);
+                // console.log("Set eventDescription to: ", rental.event.eventDescription);
+
+                let date = new Date(rental.event.eventDate);
+                let formattedDate = date.getFullYear() + '-' +
+                        ('0' + (date.getMonth()+1)).slice(-2) + '-' +
+                        ('0' + date.getDate()).slice(-2) + ' ' +
+                        ('0' + date.getHours()).slice(-2) + ':' +
+                        ('0' + date.getMinutes()).slice(-2) + ':' +
+                        ('0' + date.getSeconds()).slice(-2);
+                rentalForm.find("input[name='eventDate']").val(formattedDate);
+                // console.log("Set eventDate to: ", formattedDate);
+
+                rentalForm.find("input[name='email']").val(rental.email);
+                // console.log("Set email to: ", rental.email);
+
+                // Add full name and seat for each seat in the rental
+                rental.seats.forEach((seat, index) => {
+                  // Create a new input for each seat wrapped in a form-group div
+                  let fullNameInput = $('<div class="form-group row"><label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Full Name:</label><div class="col-lg-9"><input class="form-control text-3 h-auto py-2" type="text" name="fullNames" disabled></div></div>');
+                  let seatInput = $('<div class="form-group row"><label class="col-lg-3 col-form-label form-control-label line-height-9 pt-2 text-2">Seat:</label><div class="col-lg-9"><input class="form-control text-3 h-auto py-2" type="text" name="seats" disabled></div></div>');
+
+                  fullNameInput.find("input[name='fullNames']").val(rental.fullNames[index]);
+                  // console.log("Set fullName to: ", rental.fullNames[index]);
+
+                  seatInput.find("input[name='seats']").val(seat);
+                  // console.log("Set seat to: ", seat);
+
+                  // Insert the new inputs after the "Order E-Mail" field
+                  rentalForm.find('.form-group:has(input[name="email"])').after(fullNameInput, seatInput);
+                });
+
+                // Add the form to the page
+                $("#rentalsContainer").append(rentalForm);
+                // console.log("Added form to rentalsContainer");
+
+                let divider = $('<div class="divider divider-xs divider-style-4 taller appear-animation" data-appear-animation="bounceIn" data-appear-animation-delay="300"><i class="fas fa-chevron-down"></i></div>');
+                $("#rentalsContainer").append(divider);
+
+                rentalForm.find('button[name="resendEmail"]').click(function(event) {
+                  event.preventDefault(); // Prevent the default form submission which causes a page refresh
+
+                  $.post('/rentalInfo', { rental: rental }, function(response) {
+                    if(response.message === 'Email sent successfully.') {
+                      rentalForm.find('#emailSuccess').show(); // Show the success div
+                      rentalForm.find('#emailFail').hide(); // Ensure the failure div is hidden
+                    } else if(response.message === 'Rental is expired. No email sent.') {
+                      rentalForm.find('#emailFail').show(); // Show the failure div
+                      rentalForm.find('#emailSuccess').hide(); // Ensure the success div is hidden
+                    }
+                  });
+                });
+
+
+
+              });
+
+              // Hide the original form
+              $("#rentalHistory").hide();
+            });
+          });
+        </script>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer id="footer" class="m-0">
+    <div class="container py-3">
+      <div class="row py-5">
+        <div class="col-md-4 col-lg-3">
+          <h4 class="mb-3">Tech-RO Solutions</h4>
+          <p class="mb-0">
+            Vasilissis Sofias 91, Athina 115 21<br>
+            ATHENS, ATH<br>
+            Phone : 123-456-7890<br>
+            Email : <a class="text-color-secondary" href="mailto:techroconfirmorder@gmail.com">techroconfirmorder@gmail.com</a>
+          </p>
+        </div>
+
+        <div class="col-md-2">
+          <h4 class="mb-3">Links</h4>
+          <nav class="nav-footer">
+            <ul class="list-unstyled mb-0">
+              <li>
+                <a href="aboutus.html" class="custom-color-2 text-decoration-none">
+                  About Us
+                </a>
+              </li>
+              <li>
+                <a href="page-event-list.html" class="custom-color-2 text-decoration-none">
+                  Our Events
+                </a>
+              </li>
+              <li>
+                <a href="index-one-page.html" class="custom-color-2 text-decoration-none">
+                  Home
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright pb-0">
+      <div class="container">
+        <div class="row ">
+          <div class="col text-center py-4">
+            <p>© Copyright Tech-Ro 2023. All Rights Reserved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<!-- Vendor -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery.validation/jquery.validate.min.js"></script>
+<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+<script src="vendor/lazysizes/lazysizes.min.js"></script>
+<script src="vendor/isotope/jquery.isotope.min.js"></script>
+<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendor/vide/jquery.vide.min.js"></script>
+<script src="vendor/vivus/vivus.min.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="js/theme.js"></script>
+
+<!-- Theme Custom -->
+<script src="js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="js/theme.init.js"></script>
+<!-- Session Check and Content Output -->
+<script>
+  $(document).ready(function() {
+    $.get('/check-session', function(data) {
+      if (!data.loggedIn) {
+        window.location.href = "/sign-in-up-page.html";
+      }
+      if (data.loggedIn) {
+        $("#accountDropDown").show();
+        $("#loginBtn").hide();
+        $("#registerBtn").hide();
+        $("#welcomeUsr").html(`<strong class="text-color-dark text-4">Welcome ${data.username}!</strong>`);
+      } else {
+        $("#accountDropDown").hide();
+        $("#loginBtn").show();
+        $("#registerBtn").show();
+      }
+    });
+
+    $('#logoutBtn').click(function() {
+      $.post('/logout', function() {
+        location.reload();
+      });
+    });
+  });
+</script>
+
+
+</body>
+</html>

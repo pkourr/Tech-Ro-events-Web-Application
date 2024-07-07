@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Basic -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <title>Tech-Ro | Your choice for Tech Events!</title>
+
+  <meta name="keywords" content="Tech Events" />
+  <meta name="description" content="Tech-Ro | Your choice for Tech Events!">
+  <meta name="author" content="tech-ro.com">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0, shrink-to-fit=no">
+
+  <!-- Web Fonts  -->
+  <link id="googleFonts" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800%7CShadows+Into+Light&display=swap" rel="stylesheet" type="text/css">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="vendor/animate/animate.compat.css">
+  <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.min.css">
+  <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.carousel.min.css">
+  <link rel="stylesheet" href="vendor/owl.carousel/assets/owl.theme.default.min.css">
+  <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup.min.css">
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/theme-elements.css">
+  <link rel="stylesheet" href="css/theme-blog.css">
+  <link rel="stylesheet" href="css/theme-shop.css">
+
+  <!-- Demo CSS -->
+  <link rel="stylesheet" href="css/demos/demo-real-estate.css">
+
+  <!-- Skin CSS -->
+  <link id="skinCSS" rel="stylesheet" href="css/skins/skin-real-estate.css">
+
+  <!-- Theme Custom CSS -->
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Head Libs -->
+  <script src="vendor/modernizr/modernizr.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Get the saved dark mode state from LocalStorage, if it exists
+      var darkMode = localStorage.getItem('darkMode');
+
+      // If darkMode exists and is 'true', add the .dark class and check the switch
+      if (darkMode === 'true') {
+        $('html').addClass('dark');
+        $('#darkModeBtn').prop('checked', true);
+      }
+
+      // Listen for switch state changes
+      $('#darkModeBtn').change(function() {
+        // If the switch is checked, add the .dark class and save the state
+        if ($(this).is(':checked')) {
+          $('html').addClass('dark');
+          localStorage.setItem('darkMode', 'true');
+        }
+        // If the switch is not checked, remove the .dark class and save the state
+        else {
+          $('html').removeClass('dark');
+          localStorage.setItem('darkMode', 'false');
+        }
+      });
+    });
+  </script>
+
+</head>
+<body class="loading-overlay-showing" data-loading-overlay data-plugin-options="{'hideDelay': 500}">
+<div class="loading-overlay">
+  <div class="bounce-loader">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+  </div>
+</div>
+
+<div class="body">
+
+  <!--			HEADER DIV-->
+  <header id="header" data-plugin-options="{'stickyEnabled': true, 'stickyEnableOnBoxed': true, 'stickyEnableOnMobile': false, 'stickyStartAt': 135, 'stickySetTop': '-135px', 'stickyChangeLogo': true}">
+    <div class="header-body header-body-bottom-border-fixed box-shadow-none border-top-0">
+      <div class="header-container container">
+        <div class="header-row py-2">
+          <div class="header-column w-100">
+            <div class="header-row justify-content-between">
+              <div class="header-logo z-index-2 col-lg-2 px-0">
+                <a href="page-event-list.html">
+                  <img alt="Tech-Ro" width="200" height="200" data-sticky-width="82" data-sticky-height="40" data-sticky-top="84" src="img/logo_transparent_blacktxt.png">
+                </a>
+              </div>
+              <div class="header-nav-features header-nav-features-no-border col-lg-5 col-xl-6 px-0 ms-0">
+                <div class="header-nav-feature ps-lg-5 pe-lg-4">
+                  <form role="search" action="page-event-list-search.html" method="get">
+                  <div class="search-with-select">
+                      <a href="#" class="mobile-search-toggle-btn me-2" data-porto-toggle-class="open">
+                        <i class="icons icon-magnifier text-color-dark text-color-hover-primary"></i>
+                      </a>
+                      <div class="search-form-wrapper input-group">
+                        <input class="form-control text-1" id="headerSearch" name="s" type="search" value="" placeholder="Search...">
+                        <div class="search-form-select-wrapper">
+                          <button class="btn" type="submit">
+                            <i class="icons icon-magnifier header-nav-top-icon text-color-dark"></i>
+                          </button>
+                        </div>
+                      </div>
+
+
+                    <script>
+                      $(document).ready(function() {
+                        const urlParams = new URLSearchParams(window.location.search);
+                        const query = urlParams.get('s');
+
+                        $.get("eventTemplate.html", function(template) {
+                          $.get(`/searchEvents?s=${query}`, function(events) {
+                            // console.log("inside getEvent");
+                            for (let i = 0; i < events.length; i++) {
+                              // console.log("inside for");
+
+                              let date = new Date(events[i].eventDate);
+                              let formattedDate = date.getFullYear() + '-' +
+                                      ('0' + (date.getMonth()+1)).slice(-2) + '-' +
+                                      ('0' + date.getDate()).slice(-2) + ' ' +
+                                      ('0' + date.getHours()).slice(-2) + ':' +
+                                      ('0' + date.getMinutes()).slice(-2) + ':' +
+                                      ('0' + date.getSeconds()).slice(-2);
+
+                              let eventHTML = $(template);
+                              eventHTML.find("strong.text-4").text(formattedDate);
+                              eventHTML.find("h4.text-5").text(events[i].eventName);
+                              eventHTML.find("ul.list-unstyled li.list-inline-item:eq(0)").find("strong").text('Ticket A: ' + (events[i].tickets.A.totalSeats - events[i].tickets.A.bookedSeats.length));
+                              eventHTML.find("ul.list-unstyled li.list-inline-item:eq(1)").find("strong").text('Ticket B: ' + (events[i].tickets.B.totalSeats - events[i].tickets.B.bookedSeats.length));
+                              eventHTML.find("ul.list-unstyled li.list-inline-item:eq(2)").find("strong").text('Ticket C: ' + (events[i].tickets.C.totalSeats - events[i].tickets.C.bookedSeats.length));
+                              //on click event on anchor
+                              eventHTML.find("a").attr("href", `page-event-list-details.html?id=${events[i]._id}`);
+
+                              let divElement = eventHTML.find(".map-image");
+                              let originalSrc = "url('" + events[i].eventImage + "')";
+                              divElement.attr('style', "background-image: " + originalSrc + "; width: 100%; height: 200px; background-size: cover;");
+
+                              // We create an iframe for the map and initially hide it
+                              let mapSrc = "https://maps.google.com/maps?q=" + events[i].eventCoordinates.lat + "," + events[i].eventCoordinates.long + "&hl=es;z=14&amp;output=embed";
+                              let mapIframe = `<iframe src="${mapSrc}" width="100%" height="200px" style="border:1px solid black; display: none;" allowfullscreen="" loading="lazy"></iframe>`;
+                              divElement.append(mapIframe);
+
+                              let eventHTMLString = $('<div/>').append(eventHTML.clone()).html();
+                              // console.log(eventHTMLString);
+                              $("#events-container").append(eventHTMLString);
+                            }
+
+                            $('#events-container').on('mouseover', '.map-image', function() {
+                              // We show the iframe when the mouse hovers over the div
+                              $(this).find('iframe').show();
+                            });
+
+                            $('#events-container').on('mouseout', '.map-image', function() {
+                              // We hide the iframe when the mouse moves out of the div
+                              $(this).find('iframe').hide();
+                            });
+
+                          });
+                        });
+                      });
+                    </script>
+
+                  </div>
+                  </form>
+                </div>
+              </div>
+
+              <label class="form-check-label" for="darkModeBtn"><i class="fa-sharp fa-solid fa-circle-half-stroke fa-spin fa-spin-reverse fa-xl" style="color: #464f5d;"></i></label>
+              <input id="darkModeBtn" type="checkbox" name="darkModeBtn" class="gdpe-input custom-checkbox-switch mb-1" value="darkmode" />
+              <div class="d-flex col-auto col-lg-2 pe-0 ps-0 ps-xl-3">
+                <div id="accountDropDown" class="header-nav-features header-nav-features-no-border header-nav-features-lg-show-border order-1 order-lg-2" style="display: none;">
+                  <div class="header-nav-feature header-nav-features-user header-nav-features-user-logged d-inline-flex mx-2 pe-2" id="headerAccount">
+                    <a href="#" class="header-nav-features-toggle">
+                      <i class="far fa-user"></i>My Account
+                    </a>
+
+                    <!--My Account DropDown-->
+                    <div class="header-nav-features-dropdown header-nav-features-dropdown-mobile-fixed header-nav-features-dropdown-force-right">
+                      <div class="row">
+                        <div class="col-8">
+                          <p class="mb-0 pb-0 text-2 line-height-1 pt-1">Tech-Ro.</p>
+                          <p id="welcomeUsr"><strong class="text-color-dark text-4">Welcome User!</strong></p>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <ul class="nav nav-list-simple flex-column text-3">
+                            <li class="nav-item"><a class="nav-link" href="page-user-profile.html">My Profile</a></li>
+                            <li class="nav-item"><a class="nav-link" href="page-user-orders.html">My Orders</a></li>
+                            <li id="logoutBtn" class="nav-item"><a class="nav-link border-bottom-0" href="">Log Out</a></li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+          <div class="header-column justify-content-end">
+            <div class="header-row">
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header-nav-bar header-nav-bar-top-border bg-color-dark-scale-5">
+        <div class="header-container container">
+          <div class="header-row">
+            <div class="header-column">
+              <div class="header-row justify-content-end">
+                <div class="header-nav header-nav-line header-nav-top-line header-nav-top-line-with-border justify-content-start" data-sticky-header-style="{'minResolution': 991}" data-sticky-header-style-active="{'margin-left': '105px'}" data-sticky-header-style-deactive="{'margin-left': '0'}">
+                  <div class="header-nav-main header-nav-main-square header-nav-main-dropdown-no-borders header-nav-main-effect-3 header-nav-main-sub-effect-1 w-100">
+                    <nav class="collapse w-100">
+                      <ul class="nav nav-pills w-100" id="mainNav">
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="index-one-page.html">
+                            Home
+                          </a>
+                        </li>
+                        <li class="dropdown dropdown-mega">
+                          <a class="dropdown-item dropdown-toggle" href="aboutus.html">
+                            About Us
+                          </a>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="page-event-list.html">
+                            Events
+                          </a>
+                        </li>
+                        <li class="dropdown">
+                          <a class="dropdown-item dropdown-toggle" href="/admin/page-admin-sign-in.html">
+                            Admin
+                          </a>
+                        </li>
+                        <li id="loginBtn" class="dropdown ms-lg-auto" style="display: none;">
+                          <a href="sign-in-up-page.html" class="dropdown-item">
+                            Sign In
+                          </a>
+                        </li>
+                        <li id="registerBtn" class="dropdown" style="display: none;">
+                          <a href="sign-in-up-page.html" class="dropdown-item">
+                            Register
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                  </div>
+                  <button class="btn header-btn-collapse-nav" data-bs-toggle="collapse" data-bs-target=".header-nav-main nav">
+                    <i class="fas fa-bars"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!--			MAIN CONTENT-->
+  <div role="main" class="main">
+
+    <div class="container py-5 my-3">
+      <div class="row">
+        <div class="col">
+
+          <h2 class="mb-4">All <span class="text-color-secondary">Upcoming</span> Events:</h2>
+
+          <div class="row" id="events-container">
+            <!--									Dynamically Show Event List from DB-->
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+    <!--							DIVIDER-->
+    <div class="divider divider-style-2 divider-primary taller">
+      <i class="fas fa-chevron-down"></i>
+    </div>
+    <div class="container py-5 my-3">
+      <div class="row">
+        <div class="col">
+          <!--							EXPIRED EVENTS-->
+
+          <h2 class="mb-4">All <span class="text-color-secondary">Expired</span> Events:</h2>
+
+          <div class="row" id="events-expired-container">
+
+<!--              DISPLAY EXPIRED EVENTS HTML DIV-->
+          </div>
+
+          <script>
+            $(document).ready(function() {
+              const urlParams = new URLSearchParams(window.location.search);
+              const query = urlParams.get('s');
+
+              $.get("eventTemplate.html", function(template) {
+                $.get(`/searchExpiredEvents?s=${query}`, function(events) {
+                  // console.log("inside getExpiredEvent");
+                  for (let i = 0; i < events.length; i++) {
+                    // console.log("inside for");
+
+                    let date = new Date(events[i].eventDate);
+                    let formattedDate = date.getFullYear() + '-' +
+                            ('0' + (date.getMonth()+1)).slice(-2) + '-' +
+                            ('0' + date.getDate()).slice(-2) + ' ' +
+                            ('0' + date.getHours()).slice(-2) + ':' +
+                            ('0' + date.getMinutes()).slice(-2) + ':' +
+                            ('0' + date.getSeconds()).slice(-2);
+
+                    let eventHTML = $(template);
+                    eventHTML.find("strong.text-4").text(formattedDate);
+                    eventHTML.find("h4.text-5").text(events[i].eventName);
+                    eventHTML.find("ul.list-unstyled li.list-inline-item:eq(0)").find("strong").text('Ticket A: ' + (events[i].tickets.A.totalSeats - events[i].tickets.A.bookedSeats.length));
+                    eventHTML.find("ul.list-unstyled li.list-inline-item:eq(1)").find("strong").text('Ticket B: ' + (events[i].tickets.B.totalSeats - events[i].tickets.B.bookedSeats.length));
+                    eventHTML.find("ul.list-unstyled li.list-inline-item:eq(2)").find("strong").text('Ticket C: ' + (events[i].tickets.C.totalSeats - events[i].tickets.C.bookedSeats.length));
+
+                    let divElement = eventHTML.find(".map-image");
+                    let originalSrc = "url('" + events[i].eventImage + "')";
+                    divElement.attr('style', "background-image: " + originalSrc + "; width: 100%; height: 200px; background-size: cover;");
+
+                    // We create an iframe for the map and initially hide it
+                    let mapSrc = "https://maps.google.com/maps?q=" + events[i].eventCoordinates.lat + "," + events[i].eventCoordinates.long + "&hl=es;z=14&amp;output=embed";
+                    let mapIframe = `<iframe src="${mapSrc}" width="100%" height="200px" style="border:1px solid black; display: none;" allowfullscreen="" loading="lazy"></iframe>`;
+                    divElement.append(mapIframe);
+
+                    let eventHTMLString = $('<div/>').append(eventHTML.clone()).html();
+                    // console.log(eventHTMLString);
+                    $("#events-expired-container").append(eventHTMLString); // Note the change of container here
+                  }
+
+                  $('#events-expired-container').on('mouseover', '.map-image', function() { // Note the change of container here
+                    // We show the iframe when the mouse hovers over the div
+                    $(this).find('iframe').show();
+                  });
+
+                  $('#events-expired-container').on('mouseout', '.map-image', function() { // Note the change of container here
+                    // We hide the iframe when the mouse moves out of the div
+                    $(this).find('iframe').hide();
+                  });
+                });
+              });
+            });
+          </script>
+
+        </div>
+      </div>
+    </div>
+
+    <section class="section section-height-3 bg-secondary border-0 m-0">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-9 text-center text-lg-start mb-4 mb-lg-0">
+            <h2 class="mb-4 text-color-light mb-0">For <span class="font-weight-extra-bold">Residential And Commercial </span> Properties</h2>
+            <p class="font-weight-semibold text-color-light text-4 opacity-7 mb-0">Our Staff is trained to find any location you need!</p>
+          </div>
+          <div class="col-lg-3">
+            <div class="d-grid gap-2">
+              <a href="demo-real-estate-contact.html" class="btn btn-primary font-weight-semibold border-0 text-3 text-uppercase mt-4 btn-py-3">Contact Us
+                <img width="27" height="27" src="img/demos/real-estate/icons/arrow-right.svg" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-light d-inline-block p-relative bottom-2 ms-2'}" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer id="footer" class="m-0">
+      <div class="container py-3">
+        <div class="row py-5">
+          <div class="col-md-4 col-lg-3">
+            <h4 class="mb-3">Tech-RO Solutions</h4>
+            <p class="mb-0">
+              Vasilissis Sofias 91, Athina 115 21<br>
+              ATHENS, ATH<br>
+              Phone : 123-456-7890<br>
+              Email : <a class="text-color-secondary" href="mailto:techroconfirmorder@gmail.com">techroconfirmorder@gmail.com</a>
+            </p>
+          </div>
+
+          <div class="col-md-2">
+            <h4 class="mb-3">Links</h4>
+            <nav class="nav-footer">
+              <ul class="list-unstyled mb-0">
+                <li>
+                  <a href="aboutus.html" class="custom-color-2 text-decoration-none">
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a href="page-event-list.html" class="custom-color-2 text-decoration-none">
+                    Our Events
+                  </a>
+                </li>
+                <li>
+                  <a href="index-one-page.html" class="custom-color-2 text-decoration-none">
+                    Home
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copyright pb-0">
+        <div class="container">
+          <div class="row ">
+            <div class="col text-center py-4">
+              <p>© Copyright Tech-Ro 2023. All Rights Reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<!-- Vendor -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/jquery.appear/jquery.appear.min.js"></script>
+<script src="vendor/jquery.easing/jquery.easing.min.js"></script>
+<script src="vendor/jquery.cookie/jquery.cookie.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="vendor/jquery.validation/jquery.validate.min.js"></script>
+<script src="vendor/jquery.easy-pie-chart/jquery.easypiechart.min.js"></script>
+<script src="vendor/jquery.gmap/jquery.gmap.min.js"></script>
+<script src="vendor/lazysizes/lazysizes.min.js"></script>
+<script src="vendor/isotope/jquery.isotope.min.js"></script>
+<script src="vendor/owl.carousel/owl.carousel.min.js"></script>
+<script src="vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="vendor/vide/jquery.vide.min.js"></script>
+<script src="vendor/vivus/vivus.min.js"></script>
+
+<!-- Theme Base, Components and Settings -->
+<script src="js/theme.js"></script>
+
+<!-- Current Page Vendor and Views -->
+<script src="js/views/view.contact.js"></script>
+
+<!-- Demo -->
+<script src="js/demos/demo-real-estate.js"></script>
+
+<!-- Theme Custom -->
+<script src="js/custom.js"></script>
+
+<!-- Theme Initialization Files -->
+<script src="js/theme.init.js"></script>
+<!-- Session Check and Content Output -->
+<script>
+  $(document).ready(function() {
+    $.get('/check-session', function(data) {
+      if (data.loggedIn) {
+        $("#accountDropDown").show();
+        $("#loginBtn").hide();
+        $("#registerBtn").hide();
+        $("#welcomeUsr").html(`<strong class="text-color-dark text-4">Welcome ${data.username}!</strong>`);
+      } else {
+        $("#accountDropDown").hide();
+        $("#loginBtn").show();
+        $("#registerBtn").show();
+      }
+    });
+
+    $('#logoutBtn').click(function() {
+      $.post('/logout', function() {
+        location.reload();
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
