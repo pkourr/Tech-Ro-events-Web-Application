@@ -1,4 +1,3 @@
-```markdown
 # Tech-Ro Events Web Application
 
 ## Overview
